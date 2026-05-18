@@ -789,3 +789,36 @@ body {
         padding: 35px 20px;
     }
 }
+/* ==========================================================================
+       OPTIMIZACIÓN DE TIPOGRAFÍAS PARA MÓVILES (ALTA LEGIBILIDAD)
+       ========================================================================== */
+    
+    /* Forzamos a que los párrafos generales de las tarjetas tengan un tamaño base más cómodo */
+    .tarjeta-visual-item p, 
+    .bloque-solucion-caja p, 
+    .home-sobre-p, 
+    .sobre-hero-textos p {
+        font-size: 16px !important;       /* Subimos a 16px reales en móvil para no forzar la vista */
+        line-height: 1.7 !important;       /* Damos más espacio entre líneas para que el texto respire */
+    }
+
+    /* Ajuste elástico para las descripciones de los bloques principales */
+    .hero-descripcion, 
+    .contratarme-lead-centrado, 
+    .contacto-lead {
+        font-size: clamp(16px, 4vw, 18px) !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Hacemos los subtítulos dorados de arriba un pelín más legibles */
+    .resaltado-caps {
+        font-size: 13px !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    /* Aseguramos que los títulos de las tarjetas se lean con fuerza */
+    .tarjeta-visual-item h3, 
+    .bloque-solucion-caja h3 {
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
+    }

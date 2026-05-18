@@ -54,7 +54,7 @@ body {
 }
 
 .resaltado-caps { 
-    color: var(--color-primario-oscuro) !important; /* [cite: 14] */
+    color: #8f722d !important; /* [cite: 14] */
     font-size: 14px; /* [cite: 14] */
     font-weight: 700; /* [cite: 14] */
     letter-spacing: 2px; /* [cite: 14] */

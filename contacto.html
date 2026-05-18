@@ -97,20 +97,24 @@
     <script src="js/main.js"></script>
     <script>
         // ==========================================================================
-        // SCRIPT DE ANTIRRASTREO (OFUSCACIÓN DE DATOS)
+        // SCRIPT DE ANTIRRASTREO (DATOS REALES DE ELENA)
         // ==========================================================================
         
-        // Convertimos tus datos reales a Base64 para que los bots no los reconozcan en el HTML
-        // Tu correo real: info@elenagregoriohurtado.com -> Base64: aW5mb0BlbGVuYWdyZWdvcmlvaHVydGFkby5jb20=
-        // Tu teléfono real: +34 600 000 000 -> Base64: KzM0IDYwMCAwMDAgMDAw
-        
         window.addEventListener('DOMContentLoaded', () => {
-            const correoCifrado = "aW5mb0BlbGVuYWdyZWdvcmlvaHVydGFkby5jb20="; 
-            const tlfCifrado = "KzM0IDYwMCAwMDAgMDAw"; 
+            // Cadenas Base64 oficiales de tu marca
+            const correoCifrado = "ZWxlbmFAc2lyYW5leC5lcw=="; // elena@siranex.es
+            const tlfCifrado = "KzM0IDY5MyA1NCAwNyAwMQ==";    // +34 693 54 07 01
 
-            // Descodificación en tiempo de ejecución solo cuando un humano real abre la web
-            document.getElementById('mail-seguro').innerHTML = `<a href="mailto:${atob(correoCifrado)}" class="enlace-dato">${atob(correoCifrado)}</a>`;
-            document.getElementById('tlf-seguro').innerHTML = `<a href="tel:${atob(tlfCifrado)}" class="enlace-dato">${atob(tlfCifrado)}</a>`;
+            // Descodificación segura en tiempo de ejecución
+            const correoLimpio = atob(correoCifrado);
+            const tlfLimpio = atob(tlfCifrado);
+
+            // Eliminamos espacios internos automáticamente solo para la acción de llamada telefónica
+            const tlfParaLlamar = tlfLimpio.replace(/\s+/g, '');
+
+            // Inyección de los datos en tus bloques correspondientes
+            document.getElementById('mail-seguro').innerHTML = `<a href="mailto:${correoLimpio}" class="enlace-dato">${correoLimpio}</a>`;
+            document.getElementById('tlf-seguro').innerHTML = `<a href="tel:${tlfParaLlamar}" class="enlace-dato">${tlfLimpio}</a>`;
         });
     </script>
 </body>

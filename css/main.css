@@ -822,3 +822,40 @@ body {
         padding: 35px 20px;
     }
 }
+
+/* --- ENLACES LEGALES DEL FOOTER --- */
+.footer-contenedor {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+.enlaces-legales {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Si la pantalla es muy estrecha, se ordenan solos en varias filas */
+}
+
+.enlaces-legales a {
+    color: #777777 !important; /* Un gris sutil para que no llamen demasiado la atención */
+    text-decoration: none;
+    font-size: 13px !important;
+    transition: var(--transition); /* [cite: 50] */
+}
+
+.enlaces-legales a:hover {
+    color: var(--color-primario) !important; /* Se vuelven dorados al pasar el ratón */
+    text-decoration: underline;
+}
+
+/* Ajuste rápido para móviles */
+@media (max-width: 768px) {
+    .enlaces-legales {
+        gap: 15px;
+    }
+    .enlaces-legales a {
+        font-size: 12px !important;
+    }
+}

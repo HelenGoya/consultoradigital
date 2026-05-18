@@ -17,3 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================================================
+// GESTIÓN LEGAL DEL BANNER DE COOKIES
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('banner-cookies');
+    const botonAceptar = document.getElementById('aceptar-cookies');
+
+    // Comprobamos si el usuario ya aceptó las cookies en el pasado
+    if (!localStorage.getItem('cookies-aceptadas')) {
+        // Si no existe el registro, le mostramos el banner
+        if (banner) banner.style.display = 'block';
+    }
+
+    // Al hacer clic en el botón de aceptar
+    if (botonAceptar) {
+        botonAceptar.addEventListener('click', () => {
+            // Guardamos la decisión en la memoria del navegador (localStorage)
+            localStorage.setItem('cookies-aceptadas', 'true');
+            // Ocultamos el banner con suavidad
+            if (banner) banner.style.display = 'none';
+        });
+    }
+});

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto Ciberseguro | Elena Gregorio Hurtado</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="img/Egh (1).svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/Egh (1).svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/Egh (1).svg">
+    
+    <meta name="description" content="Contacta de forma segura con Elena Gregorio Hurtado. Canal de comunicación cifrado para auditorías, consultoría digital y proyectos tecnológicos.">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <header class="sitio-header">
+        <div class="contenedor nav-contenedor">
+            <a href="index.html" class="logotipo" aria-label="Elena Gregorio Hurtado - Inicio">
+                <img src="img/egh logotipo dorado.svg" alt="" class="logo-icono-mini">
+                <span class="logo-texto"><span class="resaltado">E</span>lena <span class="resaltado">G</span>regorio <span class="resaltado">H</span>urtado</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="barra"></span>
+                <span class="barra"></span>
+                <span class="barra"></span>
+            </button>
+
+            <nav class="menu-navegacion" id="menuNavegacion">
+                <a href="index.html" class="enlace-nav">Inicio</a>
+                <a href="sobre-mi.html" class="enlace-nav">Sobre mí</a>
+                <a href="servicios.html" class="enlace-nav">Servicios</a>
+                <a href="contacto.html" class="enlace-nav activo enlace-contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion-contacto">
+            <div class="contenedor contacto-grid">
+                
+                <div class="contacto-info-bloque">
+                    <p class="resaltado-caps">CANAL SEGURO</p>
+                    <h1>Iniciemos la transformación de tu empresa</h1>
+                    <p class="contacto-lead">Por motivos de ciberseguridad y para evitar el rastreo automatizado de bots, los datos de comunicación directa se encuentran cifrados.</p>
+                    
+                    <div class="canales-lista">
+                        <div class="canal-item">
+                            <h3>Línea Telefónica Directa</h3>
+                            <div id="tlf-seguro" class="dato-ofuscado">Cargando línea segura...</div>
+                        </div>
+                        
+                        <div class="canal-item">
+                            <h3>Correo Electrónico</h3>
+                            <div id="mail-seguro" class="dato-ofuscado">Cargando cifrado de correo...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contacto-formulario-bloque">
+                    <form action="https://formsubmit.co/tu-correo@ejemplo.com" method="POST" class="formulario-seguro">
+                        
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_next" value="https://elenagregoriohurtado.com/gracias.html">
+
+                        <div class="campo-grupo">
+                            <label for="nombre">Nombre Completo o Empresa *</label>
+                            <input type="text" id="nombre" name="name" required placeholder="Ej. Juan Pérez" autocomplete="name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="email">Correo Electrónico de Contacto *</label>
+                            <input type="email" id="email" name="email" required placeholder="ejemplo@empresa.com" autocomplete="email">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="mensaje">Detalles del Proyecto o Consulta *</label>
+                            <textarea id="mensaje" name="message" required placeholder="Describe brevemente tus necesidades tecnológicas o de ciberseguridad..." rows="6"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-dorado">Enviar Mensaje Seguro</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="sitio-footer">
+        <div class="contenedor footer-contenedor">
+            <p>&copy; 2026 Elena Gregorio Hurtado. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // ==========================================================================
+        // SCRIPT DE ANTIRRASTREO (OFUSCACIÓN DE DATOS)
+        // ==========================================================================
+        
+        // Convertimos tus datos reales a Base64 para que los bots no los reconozcan en el HTML
+        // Tu correo real: info@elenagregoriohurtado.com -> Base64: aW5mb0BlbGVuYWdyZWdvcmlvaHVydGFkby5jb20=
+        // Tu teléfono real: +34 600 000 000 -> Base64: KzM0IDYwMCAwMDAgMDAw
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            const correoCifrado = "aW5mb0BlbGVuYWdyZWdvcmlvaHVydGFkby5jb20="; 
+            const tlfCifrado = "KzM0IDYwMCAwMDAgMDAw"; 
+
+            // Descodificación en tiempo de ejecución solo cuando un humano real abre la web
+            document.getElementById('mail-seguro').innerHTML = `<a href="mailto:${atob(correoCifrado)}" class="enlace-dato">${atob(correoCifrado)}</a>`;
+            document.getElementById('tlf-seguro').innerHTML = `<a href="tel:${atob(tlfCifrado)}" class="enlace-dato">${atob(tlfCifrado)}</a>`;
+        });
+    </script>
+</body>
+</html>

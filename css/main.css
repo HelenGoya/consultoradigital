@@ -53,14 +53,13 @@ body {
     color: var(--color-primario); /* [cite: 13] */
 }
 
-.resaltado-caps { 
-    color: #8f722d !important; /* [cite: 14] */
-    font-size: 14px; /* [cite: 14] */
-    font-weight: 700; /* [cite: 14] */
-    letter-spacing: 2px; /* [cite: 14] */
-    text-transform: uppercase; /* [cite: 14] */
-    display: block; /* [cite: 14] */
-    margin-bottom: 8px;
+.resaltado-caps {
+    color: #8f722d; /* Dorado oscuro de alto contraste que aprueba PageSpeed */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
 }
 
 /* Cabeceras de sección estándar */

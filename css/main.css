@@ -319,6 +319,8 @@ body {
     padding: 60px 0; /*  */
     background-color: var(--color-fondo); /*  */
     width: 100%; /*  */
+    text-align: center;
+}
 }
 
 .hero-grid { 

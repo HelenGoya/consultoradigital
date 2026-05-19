@@ -106,11 +106,12 @@ body {
     z-index: 1000; /* [cite: 21] */
 }
 
+/* Deja esto en la zona general del CSS (para ordenadores) */
 .nav-contenedor { 
-    display: flex; /* [cite: 21] */
-    justify-content: space-between; /* [cite: 21] */
-    align-items: center; /* [cite: 22] */
-    height: 90px; /* [cite: 22] */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
@@ -227,15 +228,22 @@ body {
         margin-bottom: 10px !important;
     }
 
-    /* 1. Cambiamos el contenedor a columna para ordenar en dos niveles */
+@media (max-width: 768px) {
+    
     .nav-contenedor {
         flex-direction: column !important;
-        height: auto !important;          /* Eliminamos el alto fijo de 90px */
+        height: auto !important;          /* Eliminamos el alto fijo de 90px en móvil */
         padding: 20px 24px !important;    /* Margen interno para que respire */
-        gap: 15px !important;             /* Separación real entre el logo y el botón */
+        gap: 15px !important;             /* Separación entre logo y menú */
         align-items: center !important;   
         justify-content: center !important;
     }
+
+    /* Por si acaso el menú flotante necesita ocultarse o cambiar en móvil */
+    .menu-navegacion {
+        /* Tus estilos del menú móvil que ya tenías */
+    }
+}
 
     /* 2. Forzamos que el logotipo ocupe el ancho superior y se centre */
     .logotipo {

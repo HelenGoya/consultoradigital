@@ -206,16 +206,111 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <div id="banner-cookies" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #111111; color: #ffffff; padding: 20px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.14); z-index: 9999; display: none; font-family: sans-serif;">
-        <div class="contenedor" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-            <p style="margin: 0; font-size: 14px; max-width: 75%; line-height: 1.5; color: #cccccc;">
-                Utilizamos cookies propias y de terceros para garantizar el correcto funcionamiento técnico de la web y analizar de forma anónima las visitas. Puedes leer todos los detalles en nuestra 
-                <a href="cookies.html" style="color: #dbbf7a; text-decoration: underline;">Política de Cookies</a>.
-            </p>
-            <div style="display: flex; gap: 10px;">
-                <button id="aceptar-cookies" class="btn-dorado" style="padding: 10px 20px; font-size: 14px; cursor: pointer; border: none;">Aceptar todas</button>
-            </div>
+
+<div id="banner-cookies" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #111111; color: #ffffff; padding: 20px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.14); z-index: 9999; display: none; font-family: sans-serif;">
+    <div class="contenedor" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+        <p style="margin: 0; font-size: 14px; max-width: 65%; line-height: 1.5; color: #cccccc; text-align: left;">
+            Utilizamos cookies propias y de terceros para garantizar el funcionamiento de la web, personalizar tu experiencia y analizar el tráfico de forma anónima. Puedes configurarlas o leer los detalles en nuestra 
+            <a href="cookies.html" style="color: #dbbf7a; text-decoration: underline;">Política de Cookies</a>.
+        </p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button id="configurar-cookies" style="padding: 10px 16px; font-size: 13px; cursor: pointer; border: 1px solid #dbbf7a; background: transparent; color: #dbbf7a; border-radius: 4px; font-weight: 600;">Configurar</button>
+            <button id="rechazar-cookies" style="padding: 10px 16px; font-size: 13px; cursor: pointer; border: 1px solid #555; background: #222; color: #ffffff; border-radius: 4px; font-weight: 600;">Rechazar</button>
+            <button id="aceptar-cookies" class="btn-dorado" style="padding: 10px 20px; font-size: 13px; cursor: pointer; border: none; border-radius: 4px;">Aceptar todas</button>
         </div>
     </div>
+</div>
+
+<div id="modal-cookies" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 10000; display: none; align-items: center; justify-content: center; font-family: sans-serif; padding: 20px; box-sizing: border-box;">
+    <div style="background-color: #ffffff; color: #333333; padding: 30px; border-radius: 12px; max-width: 500px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); box-sizing: border-box; text-align: left;">
+        <h3 style="margin-top: 0; margin-bottom: 15px; color: #111111; font-size: 20px; font-weight: 700;">Centro de Preferencias de Privacidad</h3>
+        <p style="font-size: 14px; color: #666666; margin-bottom: 25px; line-height: 1.5;">Puedes activar o desactivar las diferentes categorías de cookies según tus preferencias:</p>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #ececec;">
+            <div>
+                <strong style="font-size: 15px; color: #111111; display: block; margin-bottom: 4px;">Cookies Técnicas (Necesarias)</strong>
+                <span style="font-size: 13px; color: #888888;">Imprescindibles para que la web funcione correctamente.</span>
+            </div>
+            <span style="color: #4CAF50; font-size: 13px; font-weight: 600; padding-right: 10px;">Siempre Activas</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #ececec; margin-bottom: 25px;">
+            <div>
+                <strong style="font-size: 15px; color: #111111; display: block; margin-bottom: 4px;">Cookies Analíticas</strong>
+                <span style="font-size: 13px; color: #888888;">Nos permiten medir de forma anónima cómo usas la web.</span>
+            </div>
+            <label style="position: relative; display: inline-block; width: 44px; height: 24px; cursor: pointer;">
+                <input type="checkbox" id="chk-analiticas" style="opacity: 0; width: 0; height: 0;">
+                <span id="slider-analiticas" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 24px;"></span>
+            </label>
+        </div>
+
+        <div style="text-align: right;">
+            <button id="guardar-cookies" class="btn-dorado" style="padding: 12px 24px; font-size: 14px; cursor: pointer; border: none; border-radius: 4px; width: 100%;">Guardar mis preferencias</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const banner = document.getElementById("banner-cookies");
+    const modal = document.getElementById("modal-cookies");
+    const chkAnaliticas = document.getElementById("chk-analiticas");
+    const slider = document.getElementById("slider-analiticas");
+
+    // Estilos dinámicos para el switch On/Off (Manejo visual del botón deslizante)
+    chkAnaliticas.addEventListener('change', function() {
+        if(this.checked) {
+            slider.style.backgroundColor = '#dbbf7a'; // Tu dorado corporativo
+            slider.style.boxShadow = 'inset 20px 0 0 #dbbf7a';
+        } else {
+            slider.style.backgroundColor = '#ccc';
+            slider.style.boxShadow = 'none';
+        }
+    });
+
+    // 1. Verificar si el usuario ya tomó una decisión en el pasado
+    if (!localStorage.getItem("cookies_aceptadas")) {
+        banner.style.display = "block";
+    }
+
+    // 2. Acción: Aceptar Todas
+    document.getElementById("aceptar-cookies").addEventListener("click", function() {
+        localStorage.setItem("cookies_aceptadas", "todas");
+        localStorage.setItem("cookie_analitica", "true");
+        cerrarTodo();
+    });
+
+    // 3. Acción: Rechazar Todas
+    document.getElementById("rechazar-cookies").addEventListener("click", function() {
+        localStorage.setItem("cookies_aceptadas", "rechazadas");
+        localStorage.setItem("cookie_analitica", "false");
+        cerrarTodo();
+    });
+
+    // 4. Acción: Abrir pestaña/modal de configuración
+    document.getElementById("configurar-cookies").addEventListener("click", function() {
+        modal.style.display = "flex";
+    });
+
+    // 5. Acción: Guardar preferencias elegidas
+    document.getElementById("guardar-cookies").addEventListener("click", function() {
+        localStorage.setItem("cookies_aceptadas", "personalizadas");
+        localStorage.setItem("cookie_analitica", chkAnaliticas.checked ? "true" : "false");
+        cerrarTodo();
+    });
+
+    function cerrarTodo() {
+        banner.style.display = "none";
+        modal.style.display = "none";
+        // Aquí puedes recargar la página o activar los scripts de Google Analytics si aceptaron
+        if(localStorage.getItem("cookie_analitica") === "true") {
+            console.log("Cookies analíticas activadas.");
+            // Aquí iría tu script de Google Analytics
+        }
+    }
+});
+</script>
+    
 </body>
 </html>

@@ -75,30 +75,38 @@
                             <label for="mensaje">Detalles del Proyecto o Consulta *</label>
                             <textarea id="mensaje" required placeholder="Describe brevemente tus necesidades tecnológicas o de ciberseguridad..." rows="6"></textarea>
                         </div>
-                        <div class="campo-privacidad" style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; text-align: left;">
-        <input type="checkbox" id="privacidad" required style="margin-top: 4px; cursor: pointer; width: 18px; height: 18px; accent-color: #dbbf7a;">
-        <label for="privacidad" style="color: #cccccc; font-size: 14px; line-height: 1.4; cursor: pointer;">
-            Acepto el tratamiento de mis datos conforme a la <a href="privacidad.html" target="_blank" style="color: #dbbf7a; text-decoration: underline; font-weight: 600;">Política de Privacidad</a> *
-        </label>
-    </div>
 
-    <div class="coletilla-legal" style="background: rgba(255,255,255,0.03); border-left: 2px solid #dbbf7a; padding: 15px; margin-bottom: 25px; border-radius: 0 8px 8px 0; text-align: left;">
-        <p style="color: #aaaaaa; font-size: 12px; line-height: 1.5; margin: 0;">
-            <strong>Información básica sobre protección de datos:</strong><br>
-            <strong>Responsable:</strong> Elena Gregorio Hurtado.<br>
-            <strong>Finalidad:</strong> Gestionar y responder a su solicitud de información o consulta estratégica.<br>
-            <strong>Legitimación:</strong> Consentimiento del interesado al marcar la casilla.<br>
-            <strong>Derechos:</strong> Puede acceder, rectificar y suprimir sus datos escribiendo a nuestro canal seguro de comunicación.<br>
-            <strong>Información adicional:</strong> Consulte los detalles completos en nuestra <a href="privacidad.html" target="_blank" style="color: #dbbf7a; text-decoration: none;">Política de Privacidad</a>.
-        </p>
+                        <div class="campo-privacidad" style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; text-align: left;">
+                            <input type="checkbox" id="privacidad" required style="margin-top: 4px; cursor: pointer; width: 18px; height: 18px; accent-color: #dbbf7a;">
+                            <label for="privacidad" style="color: #cccccc; font-size: 14px; line-height: 1.4; cursor: pointer;">
+                                Acepto el tratamiento de mis datos conforme a la <a href="privacidad.html" target="_blank" style="color: #dbbf7a; text-decoration: underline; font-weight: 600;">Política de Privacidad</a> *
+                            </label>
                         </div>
-                        <button type="submit" class="btn-dorado" style="width: 100%;">Enviar Mensaje</button>
+
+                        <div class="coletilla-legal" style="background: rgba(255,255,255,0.03); border-left: 2px solid #dbbf7a; padding: 15px; margin-bottom: 25px; border-radius: 0 8px 8px 0; text-align: left;">
+                            <p style="color: #aaaaaa; font-size: 12px; line-height: 1.5; margin: 0;">
+                                <strong>Información básica sobre protección de datos:</strong><br>
+                                <strong>Responsable:</strong> Elena Gregorio Hurtado.<br>
+                                <strong>Finalidad:</strong> Gestionar y responder a su solicitud de información o consulta estratégica.<br>
+                                <strong>Legitimación:</strong> Consentimiento del interesado al marcar la casilla.<br>
+                                <strong>Derechos:</strong> Puede acceder, rectificar y suprimir sus datos escribiendo a nuestro canal seguro de comunicación.<br>
+                                <strong>Información adicional:</strong> Consulte los detalles completos en nuestra <a href="privacidad.html" target="_blank" style="color: #dbbf7a; text-decoration: none;">Política de Privacidad</a>.
+                            </p>
+                        </div>
+
+                        <button type="submit" class="btn-dorado" style="width: 100%;">Enviar Mensaje Seguro</button>
                     </form>
 
                     <div id="mensaje-exito" style="display: none; background: #111111; border: 1px solid #dbbf7a; padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px;">
                         <span style="color: #dbbf7a; font-size: 30px; display: block; margin-bottom: 10px;">✓</span>
-                        <h3 style="color: #ffffff; margin: 0 0 10px 0; font-size: 18px;">Gestor de Correo Abierto</h3>
-                        <p style="color: #cccccc; font-size: 14px; margin: 0; line-height: 1.5;">Hemos estructurado la consulta de forma segura. Confirma el envío desde la ventana de tu aplicación de correo electrónico para hacérnosla llegar sin intermediarios.</p>
+                        <h3 style="color: #ffffff; margin: 0 0 10px 0; font-size: 18px;">Canal Seguro Procesado</h3>
+                        <p style="color: #cccccc; font-size: 14px; margin: 0 0 15px 0; line-height: 1.5;">
+                            Se ha intentado abrir tu gestor de correo automáticamente. Si no se ha abierto ninguna ventana por la configuración de tu PC, puedes copiar el mensaje redactado aquí abajo y enviarlo manualmente a nuestra dirección:
+                        </p>
+                        
+                        <textarea id="texto-seguro-copiar" readonly rows="8" style="width: 100%; background: #222222; color: #ffffff; border: 1px solid #444444; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 12px; box-sizing: border-box; resize: none; margin-bottom: 15px; text-align: left;"></textarea>
+                        
+                        <button onclick="copiarAlPortapapeles()" class="btn-dorado" style="padding: 10px 20px; font-size: 13px; cursor: pointer;">Copiar Mensaje Seguro</button>
                     </div>
                 </div>
 
@@ -123,7 +131,7 @@
         // SISTEMA INTEGRADO DE ANTIRRASTREO BASE64 Y LOGICA DE ENVÍO LOCAL
         // ==========================================================================
         window.addEventListener('DOMContentLoaded', () => {
-            // Cadenas Base64 oficiales para evitar la recolección automatizada de bots
+            // Cadenas Base64 oficiales para ocultar datos a los bots rastreadores
             const correoCifrado = "ZWxlbmFAc2lyYW5leC5lcw=="; // elena@siranex.es
             const tlfCifrado = "KzM0IDY5MyA1NCAwNyAwMQ==";    // +34 693 54 07 01
 
@@ -135,38 +143,46 @@
             document.getElementById('mail-seguro').innerHTML = `<a href="mailto:${correoLimpio}" class="enlace-dato">${correoLimpio}</a>`;
             document.getElementById('tlf-seguro').innerHTML = `<a href="tel:${tlfParaLlamar}" class="enlace-dato">${tlfLimpio}</a>`;
         });
-function enviarPorMailto(event) {
-    event.preventDefault();
-    
-    // 1. Extraemos tu dirección descifrada
-    const correoDestino = atob("ZWxlbmFAc2lyYW5leC5lcw==");
-    
-    // 2. Capturamos los valores
-    const nombre = document.getElementById('nombre').value;
-    const emailCliente = document.getElementById('email_cliente').value;
-    const mensajeTexto = document.getElementById('mensaje').value;
-    
-    // 3. Montamos el asunto y el cuerpo para el mailto
-    const asunto = encodeURIComponent(`Consulta Tecnológica - ${nombre}`);
-    const cuerpoMailto = encodeURIComponent(
-        `Nombre/Empresa: ${nombre}\n` +
-        `Correo de contacto: ${emailCliente}\n\n` +
-        `Detalles de la consulta:\n${mensajeTexto}`
-    );
-    
-    // 4. Preparamos el texto limpio por si tienen que copiar y pegar a mano
-    const textoParaCopiar = `Para: ${correoDestino}\nAsunto: Consulta Tecnológica - ${nombre}\n\nNombre/Empresa: ${nombre}\nCorreo: ${emailCliente}\n\nConsulta:\n${mensajeTexto}`;
-    
-    // 5. Inyectamos ese texto en la caja de seguridad por si el mailto falla
-    document.getElementById('texto-seguro-copiar').value = textoParaCopiar;
-    
-    // 6. Ocultamos formulario y mostramos bloque de éxito/copia
-    document.getElementById('miFormularioMailto').style.display = 'none';
-    document.getElementById('mensaje-exito').style.display = 'block';
-    
-    // 7. Intentamos lanzar el mailto nativo
-    window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${cuerpoMailto}`;
-}
-       
+
+        function enviarPorMailto(event) {
+            // 1. Frenamos la recarga de página nativa
+            event.preventDefault();
+            
+            // 2. Extraemos el destino cifrado para evitar lecturas de bots en el código
+            const correoDestino = atob("ZWxlbmFAc2lyYW5leC5lcw==");
+            
+            // 3. Capturamos lo que ha rellenado el usuario
+            const nombre = document.getElementById('nombre').value;
+            const emailCliente = document.getElementById('email_cliente').value;
+            const mensajeTexto = document.getElementById('mensaje').value;
+            
+            // 4. Montamos el asunto y el cuerpo estructurado para el protocolo mailto
+            const asunto = encodeURIComponent(`Consulta Tecnológica - ${nombre}`);
+            const cuerpoMailto = encodeURIComponent(
+                `Nombre/Empresa: ${nombre}\n` +
+                `Correo de contacto: ${emailCliente}\n\n` +
+                `Detalles de la consulta:\n${mensajeTexto}`
+            );
+            
+            // 5. Preparamos el texto alternativo por si falla el mailto por culpa del PC
+            const textoParaCopiar = `Para: ${correoDestino}\nAsunto: Consulta Tecnológica - ${nombre}\n\nNombre/Empresa: ${nombre}\nCorreo: ${emailCliente}\n\nConsulta:\n${mensajeTexto}`;
+            
+            // 6. Volcamos los datos en la interfaz y alternamos los bloques visuales
+            document.getElementById('texto-seguro-copiar').value = textoParaCopiar;
+            document.getElementById('miFormularioMailto').style.display = 'none';
+            document.getElementById('mensaje-exito').style.display = 'block';
+            
+            // 7. Lanzamos la orden de apertura al gestor del sistema operativo
+            window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${cuerpoMailto}`;
+        }
+
+        function copiarAlPortapapeles() {
+            const copiaTexto = document.getElementById('texto-seguro-copiar');
+            copiaTexto.select();
+            copiaTexto.setSelectionRange(0, 99999); /* Para dispositivos móviles */
+            navigator.clipboard.writeText(copiaTexto.value);
+            alert('Mensaje copiado al portapapeles con éxito. Ya puedes pegarlo en tu correo.');
+        }
+    </script>
 </body>
 </html>

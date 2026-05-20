@@ -59,27 +59,21 @@
                 </div>
 
                 <div class="contacto-formulario-bloque">
-                    <form action="https://formsubmit.co/elena@siranex.es" method="POST" class="formulario-seguro">
+                    <form id="miFormularioMailto" class="formulario-seguro" onsubmit="enviarPorMailto(event)">
                         
-                        <input type="text" name="_honey" style="display:none">
-                        
-                        <input type="hidden" name="_captcha" value="false">
-
-                        <input type="hidden" name="_next" value="https://elenagregoriohurtado.github.io/contacto.html?status=success">
-
                         <div class="campo-grupo">
                             <label for="nombre">Nombre Completo o Empresa *</label>
-                            <input type="text" id="nombre" name="name" required placeholder="Ej. Juan Pérez" autocomplete="name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
+                            <input type="text" id="nombre" required placeholder="Ej. Juan Pérez" autocomplete="name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
                         </div>
 
                         <div class="campo-grupo">
-                            <label for="email">Correo Electrónico de Contacto *</label>
-                            <input type="email" id="email" name="email" required placeholder="nombre@empresa.com" autocomplete="email">
+                            <label for="email_cliente">Tu Correo Electrónico de Contacto *</label>
+                            <input type="email" id="email_cliente" required placeholder="nombre@empresa.com" autocomplete="email">
                         </div>
 
                         <div class="campo-grupo">
                             <label for="mensaje">Detalles del Proyecto o Consulta *</label>
-                            <textarea id="mensaje" name="message" required placeholder="Describe brevemente tus necesidades tecnológicas o de ciberseguridad..." rows="6"></textarea>
+                            <textarea id="mensaje" required placeholder="Describe brevemente tus necesidades tecnológicas o de ciberseguridad..." rows="6"></textarea>
                         </div>
 
                         <button type="submit" class="btn-dorado" style="width: 100%;">Enviar Mensaje Seguro</button>
@@ -87,8 +81,8 @@
 
                     <div id="mensaje-exito" style="display: none; background: #111111; border: 1px solid #dbbf7a; padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px;">
                         <span style="color: #dbbf7a; font-size: 30px; display: block; margin-bottom: 10px;">✓</span>
-                        <h3 style="color: #ffffff; margin: 0 0 10px 0; font-size: 18px;">¡Mensaje Recibido con Éxito!</h3>
-                        <p style="color: #cccccc; font-size: 14px; margin: 0; line-height: 1.5;">Tu consulta ha sido procesada a través de nuestro canal seguro. Me pondré en contacto contigo a la mayor brevedad posible.</p>
+                        <h3 style="color: #ffffff; margin: 0 0 10px 0; font-size: 18px;">Gestor de Correo Abierto</h3>
+                        <p style="color: #cccccc; font-size: 14px; margin: 0; line-height: 1.5;">Hemos estructurado la consulta de forma segura. Confirma el envío desde la ventana de tu aplicación de correo electrónico para hacérnosla llegar sin intermediarios.</p>
                     </div>
                 </div>
 
@@ -110,28 +104,49 @@
     <script src="js/main.js"></script>
     <script>
         // ==========================================================================
-        // SCRIPT DE ANTIRRASTREO Y VALIDACIÓN DE ENVÍO
+        // SISTEMA INTEGRADO DE ANTIRRASTREO BASE64 Y LOGICA DE ENVÍO LOCAL
         // ==========================================================================
         window.addEventListener('DOMContentLoaded', () => {
-            // 1. Lógica del Cifrado Antirrastreo Base64
-            const correoCifrado = "ZWxlbmFAc2lyYW5leC5lcw=="; 
-            const tlfCifrado = "KzM0IDY5MyA1NCAwNyAwMQ==";    
+            // Cadenas Base64 oficiales para evitar la recolección automatizada de bots
+            const correoCifrado = "ZWxlbmFAc2lyYW5leC5lcw=="; // elena@siranex.es
+            const tlfCifrado = "KzM0IDY5MyA1NCAwNyAwMQ==";    // +34 693 54 07 01
 
             const correoLimpio = atob(correoCifrado);
             const tlfLimpio = atob(tlfCifrado);
             const tlfParaLlamar = tlfLimpio.replace(/\s+/g, '');
 
+            // Inyección segura en el bloque informativo lateral
             document.getElementById('mail-seguro').innerHTML = `<a href="mailto:${correoLimpio}" class="enlace-dato">${correoLimpio}</a>`;
             document.getElementById('tlf-seguro').innerHTML = `<a href="tel:${tlfParaLlamar}" class="enlace-dato">${tlfLimpio}</a>`;
-
-            // 2. Control visual de "Mensaje Enviado" inteligente
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('status') === 'success') {
-                // Ocultamos el formulario viejo y mostramos el cuadro de éxito premium
-                document.querySelector('.formulario-seguro').style.display = 'none';
-                document.getElementById('mensaje-exito').style.display = 'block';
-            }
         });
+
+        function enviarPorMailto(event) {
+            // 1. Frenamos el procesado por defecto del formulario de recargar la web
+            event.preventDefault();
+            
+            // 2. Extraemos el destino descifrando la cadena Base64 en caliente (Anti-bots)
+            const correoDestino = atob("ZWxlbmFAc2lyYW5leC5lcw==");
+            
+            // 3. Capturamos los valores ingresados por el usuario
+            const nombre = document.getElementById('nombre').value;
+            const emailCliente = document.getElementById('email_cliente').value;
+            const mensajeTexto = document.getElementById('mensaje').value;
+            
+            // 4. Codificamos los caracteres de forma segura para la URI del protocolo mailto
+            const asunto = encodeURIComponent(`Consulta Tecnológica - ${nombre}`);
+            const cuerpo = encodeURIComponent(
+                `Nombre/Empresa: ${nombre}\n` +
+                `Correo de contacto de origen: ${emailCliente}\n\n` +
+                `Detalles de la consulta:\n${mensajeTexto}`
+            );
+            
+            // 5. Mutamos visualmente la interfaz de usuario para confirmar el procesado interno
+            document.getElementById('miFormularioMailto').style.display = 'none';
+            document.getElementById('mensaje-exito').style.display = 'block';
+            
+            // 6. Ejecutamos la llamada al sistema de correo local de forma segura
+            window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${cuerpo}`;
+        }
     </script>
 </body>
 </html>

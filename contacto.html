@@ -59,21 +59,21 @@
                 </div>
 
                 <div class="contacto-formulario-bloque">
-                    <form id="miFormularioMailto" class="formulario-seguro" onsubmit="enviarPorMailto(event)">
+                    <form id="miFormularioCiberseguro" class="formulario-seguro" onsubmit="enviarFormularioSeguro(event)">
                         
                         <div class="campo-grupo">
                             <label for="nombre">Nombre Completo o Empresa *</label>
-                            <input type="text" id="nombre" required placeholder="Ej. Juan Pérez" autocomplete="name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
+                            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez" autocomplete="name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
                         </div>
 
                         <div class="campo-grupo">
                             <label for="email_cliente">Tu Correo Electrónico de Contacto *</label>
-                            <input type="email" id="email_cliente" required placeholder="nombre@empresa.com" autocomplete="email">
+                            <input type="email" id="email_cliente" name="email" required placeholder="nombre@empresa.com" autocomplete="email">
                         </div>
 
                         <div class="campo-grupo">
                             <label for="mensaje">Detalles del Proyecto o Consulta *</label>
-                            <textarea id="mensaje" required placeholder="Describe brevemente tus necesidades tecnológicas o de ciberseguridad..." rows="6"></textarea>
+                            <textarea id="mensaje" name="mensaje" required placeholder="Describe brevemente tus necesidades tecnológicas..." rows="6"></textarea>
                         </div>
 
                         <div class="campo-privacidad" style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; text-align: left;">
@@ -87,26 +87,20 @@
                             <p style="color: #aaaaaa; font-size: 12px; line-height: 1.5; margin: 0;">
                                 <strong>Información básica sobre protección de datos:</strong><br>
                                 <strong>Responsable:</strong> Elena Gregorio Hurtado.<br>
-                                <strong>Finalidad:</strong> Gestionar y responder a su solicitud de información o consulta estratégica.<br>
-                                <strong>Legitimación:</strong> Consentimiento del interesado al marcar la casilla.<br>
-                                <strong>Derechos:</strong> Puede acceder, rectificar y suprimir sus datos escribiendo a nuestro canal seguro de comunicación.<br>
-                                <strong>Información adicional:</strong> Consulte los detalles completos en nuestra <a href="privacidad.html" target="_blank" style="color: #dbbf7a; text-decoration: none;">Política de Privacidad</a>.
+                                <strong>Finalidad:</strong> Responder a su consulta estratégica corporativa.<br>
+                                <strong>Legitimación:</strong> Consentimiento explícito al marcar la casilla.<br>
+                                <strong>Derechos:</strong> Acceso, rectificación y supresión de sus datos a través de nuestro canal seguro.<br>
+                                <strong>Información adicional:</strong> Detalles en nuestra <a href="privacidad.html" target="_blank" style="color: #dbbf7a; text-decoration: none;">Política de Privacidad</a>.
                             </p>
                         </div>
 
-                        <button type="submit" class="btn-dorado" style="width: 100%;">Enviar Mensaje Seguro</button>
+                        <button type="submit" id="btnEnviar" class="btn-dorado" style="width: 100%;">Enviar Mensaje Seguro</button>
                     </form>
 
-                    <div id="mensaje-exito" style="display: none; background: #111111; border: 1px solid #dbbf7a; padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px;">
-                        <span style="color: #dbbf7a; font-size: 30px; display: block; margin-bottom: 10px;">✓</span>
-                        <h3 style="color: #ffffff; margin: 0 0 10px 0; font-size: 18px;">Canal Seguro Procesado</h3>
-                        <p style="color: #cccccc; font-size: 14px; margin: 0 0 15px 0; line-height: 1.5;">
-                            Se ha intentado abrir tu gestor de correo automáticamente. Si no se ha abierto ninguna ventana por la configuración de tu PC, puedes copiar el mensaje redactado aquí abajo y enviarlo manualmente a nuestra dirección:
-                        </p>
-                        
-                        <textarea id="texto-seguro-copiar" readonly rows="8" style="width: 100%; background: #222222; color: #ffffff; border: 1px solid #444444; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 12px; box-sizing: border-box; resize: none; margin-bottom: 15px; text-align: left;"></textarea>
-                        
-                        <button onclick="copiarAlPortapapeles()" class="btn-dorado" style="padding: 10px 20px; font-size: 13px; cursor: pointer;">Copiar Mensaje Seguro</button>
+                    <div id="mensaje-exito" style="display: none; background: #111111; border: 1px solid #dbbf7a; padding: 30px; border-radius: 8px; text-align: center; margin-top: 20px;">
+                        <span style="color: #dbbf7a; font-size: 35px; display: block; margin-bottom: 10px;">✓</span>
+                        <h3 style="color: #ffffff; margin: 0 0 10px 0; font-size: 20px;">¡Mensaje Cifrado y Enviado!</h3>
+                        <p style="color: #cccccc; font-size: 14px; margin: 0; line-height: 1.6;">Tu solicitud ha sido transmitida de forma segura a nuestro servidor de destino sin intermediarios públicos. Recibirás respuesta a la mayor brevedad posible.</p>
                     </div>
                 </div>
 
@@ -128,60 +122,58 @@
     <script src="js/main.js"></script>
     <script>
         // ==========================================================================
-        // SISTEMA INTEGRADO DE ANTIRRASTREO BASE64 Y LOGICA DE ENVÍO LOCAL
+        // CIFRADO BASE64 PARA LA VISTA LATERAL
         // ==========================================================================
         window.addEventListener('DOMContentLoaded', () => {
-            // Cadenas Base64 oficiales para ocultar datos a los bots rastreadores
-            const correoCifrado = "ZWxlbmFAc2lyYW5leC5lcw=="; // elena@siranex.es
-            const tlfCifrado = "KzM0IDY5MyA1NCAwNyAwMQ==";    // +34 693 54 07 01
+            const correoCifrado = "ZWxlbmFAc2lyYW5leC5lcw=="; 
+            const tlfCifrado = "KzM0IDY5MyA1NCAwNyAwMQ==";    
 
             const correoLimpio = atob(correoCifrado);
             const tlfLimpio = atob(tlfCifrado);
             const tlfParaLlamar = tlfLimpio.replace(/\s+/g, '');
 
-            // Inyección segura en el bloque informativo lateral
             document.getElementById('mail-seguro').innerHTML = `<a href="mailto:${correoLimpio}" class="enlace-dato">${correoLimpio}</a>`;
             document.getElementById('tlf-seguro').innerHTML = `<a href="tel:${tlfParaLlamar}" class="enlace-dato">${tlfLimpio}</a>`;
         });
 
-        function enviarPorMailto(event) {
-            // 1. Frenamos la recarga de página nativa
+        // ==========================================================================
+        // PROCESADO CIBERSEGURO HTTPS POST (SERVERLESS)
+        // ==========================================================================
+        function enviarFormularioSeguro(event) {
             event.preventDefault();
             
-            // 2. Extraemos el destino cifrado para evitar lecturas de bots en el código
-            const correoDestino = atob("ZWxlbmFAc2lyYW5leC5lcw==");
-            
-            // 3. Capturamos lo que ha rellenado el usuario
-            const nombre = document.getElementById('nombre').value;
-            const emailCliente = document.getElementById('email_cliente').value;
-            const mensajeTexto = document.getElementById('mensaje').value;
-            
-            // 4. Montamos el asunto y el cuerpo estructurado para el protocolo mailto
-            const asunto = encodeURIComponent(`Consulta Tecnológica - ${nombre}`);
-            const cuerpoMailto = encodeURIComponent(
-                `Nombre/Empresa: ${nombre}\n` +
-                `Correo de contacto: ${emailCliente}\n\n` +
-                `Detalles de la consulta:\n${mensajeTexto}`
-            );
-            
-            // 5. Preparamos el texto alternativo por si falla el mailto por culpa del PC
-            const textoParaCopiar = `Para: ${correoDestino}\nAsunto: Consulta Tecnológica - ${nombre}\n\nNombre/Empresa: ${nombre}\nCorreo: ${emailCliente}\n\nConsulta:\n${mensajeTexto}`;
-            
-            // 6. Volcamos los datos en la interfaz y alternamos los bloques visuales
-            document.getElementById('texto-seguro-copiar').value = textoParaCopiar;
-            document.getElementById('miFormularioMailto').style.display = 'none';
-            document.getElementById('mensaje-exito').style.display = 'block';
-            
-            // 7. Lanzamos la orden de apertura al gestor del sistema operativo
-            window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${cuerpoMailto}`;
-        }
+            const btn = document.getElementById('btnEnviar');
+            btn.innerText = "Cifrando y transmitiendo...";
+            btn.disabled = true;
 
-        function copiarAlPortapapeles() {
-            const copiaTexto = document.getElementById('texto-seguro-copiar');
-            copiaTexto.select();
-            copiaTexto.setSelectionRange(0, 99999); /* Para dispositivos móviles */
-            navigator.clipboard.writeText(copiaTexto.value);
-            alert('Mensaje copiado al portapapeles con éxito. Ya puedes pegarlo en tu correo.');
+            // Captura de datos estructurada
+            const datos = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email_cliente').value,
+                mensaje: document.getElementById('mensaje').value
+            };
+
+            // RUTA DE TU PROPIO ENDPOINT (Google Apps Script Web App)
+            // Esto cifra la petición y la manda por HTTPS directamente al backend de Google
+            const urlWebhook = atob("aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J6aExUZXhDaTVrc1NtbGNfZWg5d2FlYWE3YmJvRnZKNVhuSjBpaDNsWkdQcU1HMDlIT1U0SXB4UG5OaXhiVjVfLVRsUS9leGVjCg==");
+            
+
+            fetch(urlWebhook, {
+                method: 'POST',
+                mode: 'no-cors', // Evita problemas de CORS al ser una petición serverless cruzada
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datos)
+            })
+            .then(() => {
+                // Interfaz limpia: ocultamos formulario y mostramos éxito
+                document.getElementById('miFormularioCiberseguro').style.display = 'none';
+                document.getElementById('mensaje-exito').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error de canal:', error);
+                btn.innerText = "Error. Reintentar envío";
+                btn.disabled = false;
+            });
         }
     </script>
 </body>

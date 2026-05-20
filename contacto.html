@@ -135,34 +135,38 @@
             document.getElementById('mail-seguro').innerHTML = `<a href="mailto:${correoLimpio}" class="enlace-dato">${correoLimpio}</a>`;
             document.getElementById('tlf-seguro').innerHTML = `<a href="tel:${tlfParaLlamar}" class="enlace-dato">${tlfLimpio}</a>`;
         });
-
-        function enviarPorMailto(event) {
-            // 1. Frenamos el procesado por defecto del formulario de recargar la web
-            event.preventDefault();
-            
-            // 2. Extraemos el destino descifrando la cadena Base64 en caliente (Anti-bots)
-            const correoDestino = atob("ZWxlbmFAc2lyYW5leC5lcw==");
-            
-            // 3. Capturamos los valores ingresados por el usuario
-            const nombre = document.getElementById('nombre').value;
-            const emailCliente = document.getElementById('email_cliente').value;
-            const mensajeTexto = document.getElementById('mensaje').value;
-            
-            // 4. Codificamos los caracteres de forma segura para la URI del protocolo mailto
-            const asunto = encodeURIComponent(`Consulta Tecnológica - ${nombre}`);
-            const cuerpo = encodeURIComponent(
-                `Nombre/Empresa: ${nombre}\n` +
-                `Correo de contacto de origen: ${emailCliente}\n\n` +
-                `Detalles de la consulta:\n${mensajeTexto}`
-            );
-            
-            // 5. Mutamos visualmente la interfaz de usuario para confirmar el procesado interno
-            document.getElementById('miFormularioMailto').style.display = 'none';
-            document.getElementById('mensaje-exito').style.display = 'block';
-            
-            // 6. Ejecutamos la llamada al sistema de correo local de forma segura
-            window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${cuerpo}`;
-        }
-    </script>
+function enviarPorMailto(event) {
+    event.preventDefault();
+    
+    // 1. Extraemos tu dirección descifrada
+    const correoDestino = atob("ZWxlbmFAc2lyYW5leC5lcw==");
+    
+    // 2. Capturamos los valores
+    const nombre = document.getElementById('nombre').value;
+    const emailCliente = document.getElementById('email_cliente').value;
+    const mensajeTexto = document.getElementById('mensaje').value;
+    
+    // 3. Montamos el asunto y el cuerpo para el mailto
+    const asunto = encodeURIComponent(`Consulta Tecnológica - ${nombre}`);
+    const cuerpoMailto = encodeURIComponent(
+        `Nombre/Empresa: ${nombre}\n` +
+        `Correo de contacto: ${emailCliente}\n\n` +
+        `Detalles de la consulta:\n${mensajeTexto}`
+    );
+    
+    // 4. Preparamos el texto limpio por si tienen que copiar y pegar a mano
+    const textoParaCopiar = `Para: ${correoDestino}\nAsunto: Consulta Tecnológica - ${nombre}\n\nNombre/Empresa: ${nombre}\nCorreo: ${emailCliente}\n\nConsulta:\n${mensajeTexto}`;
+    
+    // 5. Inyectamos ese texto en la caja de seguridad por si el mailto falla
+    document.getElementById('texto-seguro-copiar').value = textoParaCopiar;
+    
+    // 6. Ocultamos formulario y mostramos bloque de éxito/copia
+    document.getElementById('miFormularioMailto').style.display = 'none';
+    document.getElementById('mensaje-exito').style.display = 'block';
+    
+    // 7. Intentamos lanzar el mailto nativo
+    window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${cuerpoMailto}`;
+}
+       
 </body>
 </html>

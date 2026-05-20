@@ -75,8 +75,24 @@
                             <label for="mensaje">Detalles del Proyecto o Consulta *</label>
                             <textarea id="mensaje" required placeholder="Describe brevemente tus necesidades tecnológicas o de ciberseguridad..." rows="6"></textarea>
                         </div>
+                        <div class="campo-privacidad" style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; text-align: left;">
+        <input type="checkbox" id="privacidad" required style="margin-top: 4px; cursor: pointer; width: 18px; height: 18px; accent-color: #dbbf7a;">
+        <label for="privacidad" style="color: #cccccc; font-size: 14px; line-height: 1.4; cursor: pointer;">
+            Acepto el tratamiento de mis datos conforme a la <a href="privacidad.html" target="_blank" style="color: #dbbf7a; text-decoration: underline; font-weight: 600;">Política de Privacidad</a> *
+        </label>
+    </div>
 
-                        <button type="submit" class="btn-dorado" style="width: 100%;">Enviar Mensaje Seguro</button>
+    <div class="coletilla-legal" style="background: rgba(255,255,255,0.03); border-left: 2px solid #dbbf7a; padding: 15px; margin-bottom: 25px; border-radius: 0 8px 8px 0; text-align: left;">
+        <p style="color: #aaaaaa; font-size: 12px; line-height: 1.5; margin: 0;">
+            <strong>Información básica sobre protección de datos:</strong><br>
+            <strong>Responsable:</strong> Elena Gregorio Hurtado.<br>
+            <strong>Finalidad:</strong> Gestionar y responder a su solicitud de información o consulta estratégica.<br>
+            <strong>Legitimación:</strong> Consentimiento del interesado al marcar la casilla.<br>
+            <strong>Derechos:</strong> Puede acceder, rectificar y suprimir sus datos escribiendo a nuestro canal seguro de comunicación.<br>
+            <strong>Información adicional:</strong> Consulte los detalles completos en nuestra <a href="privacidad.html" target="_blank" style="color: #dbbf7a; text-decoration: none;">Política de Privacidad</a>.
+        </p>
+                        </div>
+                        <button type="submit" class="btn-dorado" style="width: 100%;">Enviar Mensaje</button>
                     </form>
 
                     <div id="mensaje-exito" style="display: none; background: #111111; border: 1px solid #dbbf7a; padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px;">

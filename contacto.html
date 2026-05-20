@@ -62,7 +62,10 @@
                     <form action="https://formsubmit.co/elena@siranex.es" method="POST" class="formulario-seguro">
                         
                         <input type="text" name="_honey" style="display:none">
-                        <input type="hidden" name="_captcha" value="true">
+                        
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <input type="hidden" name="_next" value="https://elenagregoriohurtado.github.io/contacto.html?status=success">
 
                         <div class="campo-grupo">
                             <label for="nombre">Nombre Completo o Empresa *</label>
@@ -71,7 +74,7 @@
 
                         <div class="campo-grupo">
                             <label for="email">Correo Electrónico de Contacto *</label>
-                            <input type="email" id="email" name="email" required placeholder="elena@siranex.es" autocomplete="email">
+                            <input type="email" id="email" name="email" required placeholder="nombre@empresa.com" autocomplete="email">
                         </div>
 
                         <div class="campo-grupo">
@@ -79,8 +82,14 @@
                             <textarea id="mensaje" name="message" required placeholder="Describe brevemente tus necesidades tecnológicas o de ciberseguridad..." rows="6"></textarea>
                         </div>
 
-                        <button type="submit" class="btn-dorado">Enviar Mensaje Seguro</button>
+                        <button type="submit" class="btn-dorado" style="width: 100%;">Enviar Mensaje Seguro</button>
                     </form>
+
+                    <div id="mensaje-exito" style="display: none; background: #111111; border: 1px solid #dbbf7a; padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px;">
+                        <span style="color: #dbbf7a; font-size: 30px; display: block; margin-bottom: 10px;">✓</span>
+                        <h3 style="color: #ffffff; margin: 0 0 10px 0; font-size: 18px;">¡Mensaje Recibido con Éxito!</h3>
+                        <p style="color: #cccccc; font-size: 14px; margin: 0; line-height: 1.5;">Tu consulta ha sido procesada a través de nuestro canal seguro. Me pondré en contacto contigo a la mayor brevedad posible.</p>
+                    </div>
                 </div>
 
             </div>
@@ -101,24 +110,27 @@
     <script src="js/main.js"></script>
     <script>
         // ==========================================================================
-        // SCRIPT DE ANTIRRASTREO (DATOS REALES DE ELENA)
+        // SCRIPT DE ANTIRRASTREO Y VALIDACIÓN DE ENVÍO
         // ==========================================================================
-        
         window.addEventListener('DOMContentLoaded', () => {
-            // Cadenas Base64 oficiales de tu marca
-            const correoCifrado = "ZWxlbmFAc2lyYW5leC5lcw=="; // elena@siranex.es
-            const tlfCifrado = "KzM0IDY5MyA1NCAwNyAwMQ==";    // +34 693 54 07 01
+            // 1. Lógica del Cifrado Antirrastreo Base64
+            const correoCifrado = "ZWxlbmFAc2lyYW5leC5lcw=="; 
+            const tlfCifrado = "KzM0IDY5MyA1NCAwNyAwMQ==";    
 
-            // Descodificación segura en tiempo de ejecución
             const correoLimpio = atob(correoCifrado);
             const tlfLimpio = atob(tlfCifrado);
-
-            // Eliminamos espacios internos automáticamente solo para la acción de llamada telefónica
             const tlfParaLlamar = tlfLimpio.replace(/\s+/g, '');
 
-            // Inyección de los datos en tus bloques correspondientes
             document.getElementById('mail-seguro').innerHTML = `<a href="mailto:${correoLimpio}" class="enlace-dato">${correoLimpio}</a>`;
             document.getElementById('tlf-seguro').innerHTML = `<a href="tel:${tlfParaLlamar}" class="enlace-dato">${tlfLimpio}</a>`;
+
+            // 2. Control visual de "Mensaje Enviado" inteligente
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('status') === 'success') {
+                // Ocultamos el formulario viejo y mostramos el cuadro de éxito premium
+                document.querySelector('.formulario-seguro').style.display = 'none';
+                document.getElementById('mensaje-exito').style.display = 'block';
+            }
         });
     </script>
 </body>

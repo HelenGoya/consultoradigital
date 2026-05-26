@@ -1,317 +1,162 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="Y_iTe5MGN9DwijkWDA90dPXQVX469F25o-Y0oGWySXw" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elena Gregorio Hurtado | Consultoría Digital y Transformación Tecnológica</title>
-    
-    <link rel="icon" type="image/svg+xml" sizes="32x32" href="img/egh logotipo dorado minimalista.svg">
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="img/egh logotipo dorado minimalista.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/egh logotipo dorado minimalista.svg">
-    
-    <meta name="description" content="Consultora digital especializada en transformación tecnológica, optimización de procesos y estrategia SEO para empresas, autónomos y entidades.">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
+---
+layout: default
+title: Elena Gregorio Hurtado | Consultoría Digital y Transformación Tecnológica
+description: Consultora digital especializada en transformación tecnológica, optimización de procesos y estrategia SEO para empresas, autónomos y entidades.
+---
 
-    <header class="sitio-header">
-        <div class="contenedor nav-contenedor">
-            <a href="index.html" class="logotipo" aria-label="Elena Gregorio Hurtado - Inicio">
-                <img src="img/egh logotipo dorado minimalista.svg" alt="" class="logo-icono-mini">
-                <span class="logo-texto"><span class="resaltado">E</span>lena <span class="resaltado">G</span>regorio <span class="resaltado">H</span>urtado</span>
-            </a>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
-    <span class="barra"></span><span class="barra"></span><span class="barra"></span>
-</button>
-            <nav class="menu-navegacion" id="menuNavegacion">
-                <a href="index.html" class="enlace-nav activo">Inicio</a>
-                <a href="sobre-mi.html" class="enlace-nav">Quien soy</a>
-                <a href="servicios.html" class="enlace-nav">Servicios</a>
-                <a href="metodo-goya.html" class="enlace-nav">Método Goya</a>
-                <a href="contacto.html" class="enlace-nav enlace-contacto">Contacto</a>
-            </nav>
+<section class="hero" aria-labelledby="titulo-principal">
+    <div class="contenedor hero-grid">
+        <div class="hero-textos">
+            <p class="hero-subtitulo">CONSULTORÍA DIGITAL ESTRATÉGICA</p>
+            <h1 id="titulo-principal" class="hero-titulo">Transformación Digital Inteligente y <span class="resaltado">A Medida</span></h1>
+            <p class="hero-descripcion">Ayudo a empresas, instituciones y ONGs a optimizar su presencia online, automatizar flujos de trabajo internos e integrar Inteligencia Artificial con un enfoque seguro, analítico y orientado a resultados.</p>
+            <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Impulsar mi Negocio</a>
         </div>
-    </header>
-
-    <main>
-        <section class="hero" aria-labelledby="titulo-principal">
-            <div class="contenedor hero-grid">
-                <div class="hero-textos">
-                    <p class="hero-subtitulo">CONSULTORÍA DIGITAL ESTRATÉGICA</p>
-                    <h1 id="titulo-principal" class="hero-titulo">Transformación Digital Inteligente y <span class="resaltado">A Medida</span></h1>
-                    <p class="hero-descripcion">Ayudo a empresas, instituciones y ONGs a optimizar su presencia online, automatizar flujos de trabajo internos e integrar Inteligencia Artificial con un enfoque seguro, analítico y orientado a resultados.</p>
-                    <a href="contacto.html" class="btn-dorado">Impulsar mi Negocio</a>
-                </div>
-                <div class="hero-imagen-bloque">
-                    <img src="img/elena en banco oficina.png" 
-     alt="Elena Gregorio Hurtado - Consultora Digital" 
-     class="foto-perfil-secundaria" 
-     width="352" 
-     height="235" 
-     loading="lazy">
-                </div>
-            </div>
-        </section>
-
-        <section class="seccion-soluciones-bloques">
-            <div class="contenedor">
-                
-                <header class="seccion-header-centro">
-                    <p class="resaltado-caps">Servicios de Consultoría Tecnológica</p>
-                     <h2>¿Qué soluciones busca tu empresa para crecer en internet?</h2>
-                     
-                </header>
-                
-                <div class="grid-tres-columnas">
-                    <article class="bloque-solucion-caja">
-                        <h3>Consultora SEO y Estrategia Digital</h3>
-                        <p>Diseño de hojas de ruta digitales basadas en datos objetivos. Auditoría de posicionamiento orgánico para visibilizar tu negocio ante tu cliente ideal.</p>
-                        <a href="contacto.html" class="btn-dorado">    Solicitar servicio &rarr;</a>
-                    </article>
-                    
-                    <article class="bloque-solucion-caja">
-                        <h3>Optimización y Automatización de Procesos</h3>
-                        <p>Reducción de costes operativos y eliminación de tareas redundantes mediante la automatización de flujos y conectividad digital avanzada.</p>
-                        <a href="contacto.html" class="btn-dorado">Optimizar mi servicio &rarr;</a>
-                    </article>
-                    
-                    <article class="bloque-solucion-caja">
-                        <h3>Integración de Inteligencia Artificial (IA)</h3>
-                        <p>Preparación y despliegue estratégico de soluciones de Inteligencia Artificial y competencias digitales adaptadas a la realidad de tu equipo.</p>
-                        <a href="contacto.html" class="btn-dorado">Integrar IA ahora &rarr;</a>
-                    </article>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="por-que-contratarme" aria-labelledby="titulo-ventajas-claras">
-            <div class="contenedor">
-                
-                <header class="seccion-header-centro">
-                    <p class="resaltado-caps">Tu negocio en buenas manos</p>
-                    <h2 id="titulo-ventajas-claras">Hago que la tecnología trabaje para ti (y no al revés)</h2>
-                    <p class="contratarme-lead-centrado">Olvídate de los sustos técnicos, las facturas sorpresa y los sistemas lentos. Así te ayudo a tomar el control:</p>
-                </header>
-                
-                <div class="mosaico-ventajas">
-                    
-                    <article class="tarjeta-visual-item">
-                        <div class="tarjeta-visual-header">
-                            <div class="icono-circulo-dorado"><span>💻</span></div>
-                            <span class="tarjeta-numero-sutil">01</span>
-                        </div>
-                        <h3>Tu web es tuya, de nadie más</h3>
-                        <p><strong>El problema:</strong> Muchas empresas descubren que si quieren cambiar algo de su web, tienen que seguir pagando cuotas eternas a plataformas de terceros o están "atrapadas".</p>
-                        <p style="margin-top: 10px;"><strong>Mi solución:</strong> Yo construyo tu sistema desde cero para que tú tengas las llaves físicas de tu negocio digital. Sin alquileres ocultos ni dependencias. Tu plataforma es tuya para siempre.</p>
-                        <a href="contacto.html" class="btn-dorado">Quiero ser dueño de mi web &rarr;</a>
-                    </article>
-
-                    <article class="tarjeta-visual-item">
-                        <div class="tarjeta-visual-header">
-                            <div class="icono-circulo-dorado"><span>📊</span></div>
-                            <span class="tarjeta-numero-sutil">02</span>
-                        </div>
-                        <h3>Hablamos tu mismo idioma</h3>
-                        <p><strong>El problema:</strong> La tecnología trae consigo poder entenderla, y al final no sabes si lo que estás comprando ayuda a tu negocio a ganar dinero o no.</p>
-                        <p style="margin-top: 10px;"><strong>Mi solución:</strong> Traduzco la tecnología compleja a planes de trabajo sencillos y rentables. Actúo como un puente: me encargo de lo difícil para que tú solo veas los resultados y las ventas.</p>
-                        <a href="contacto.html" class="btn-dorado">Quiero un plan claro &rarr;</a>
-                    </article>
-
-                    <article class="tarjeta-visual-item">
-                        <div class="tarjeta-visual-header">
-                            <div class="icono-circulo-dorado"><span>🔒</span></div>
-                            <span class="tarjeta-numero-sutil">03</span>
-                        </div>
-                        <h3>Candados puestos antes de abrir</h3>
-                        <p><strong>El problema:</strong> La mayoría de la gente se preocupa por la seguridad informática solo cuando ya le han robado los datos de sus clientes o cuando la web se ha caído.</p>
-                        <p style="margin-top: 10px;"><strong>Mi solución:</strong> No pongo "tiritas" al final. Diseño tu sistema digital con los candados de seguridad integrados desde el primer minuto para evitar disgustos, virus y ataques antes de que ocurran.</p>
-                         <a href="contacto.html" class="btn-dorado">Proteger mi negocio &rarr;</a>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-        <section class="home-sobre-mi" aria-labelledby="titulo-home-sobre">
-            <div class="contenedor home-sobre-grid">
-                <div class="home-sobre-imagen">
-                   <img src="img/IMG_1228.jpeg" 
-     alt="Elena Gregorio Hurtado trabajando en su oficina de consultoría" 
-     class="hero-foto-perfil" 
-     width="352" 
-     height="265" 
-     loading="eager">
-                </div>
-                <div class="home-sobre-textos">
-                    <p class="resaltado-caps">Elena Gregorio Hurtado</p>
-                    <h2>Consultora Tecnológica Independiente y Formadora Digital</h2>
-                    <p class="home-sobre-p">Acompaño a organizaciones y autónomos en su transición hacia modelos de negocio digitales eficientes, rentables y, por encima de todo, blindados.</p>
-                     <a href="sobre-mi.html" class="btn-dorado">Conocer mi trayectoria &rarr;</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="metricas-seccion">
-            <div class="contenedor grid-tres-columnas">
-                <div class="metrica-item" style="text-align: center;">
-                    <span class="metrica-numero">100%</span>
-                    <span class="metrica-etiqueta">Soberanía Digital</span>
-                    <p>Sistemas implementados con control absoluto de infraestructura.</p>
-                </div>
-                <div class="metrica-item" style="text-align: center;">
-                    <span class="metrica-numero">+15</span>
-                    <span class="metrica-etiqueta">Años de Optimización</span>
-                    <p>Estrategias corporativas transformadas con metodologías ágiles.</p>
-                </div>
-                <div class="metrica-item" style="text-align: center;">
-                    <span class="metrica-numero">Nativa</span>
-                    <span class="metrica-etiqueta">Ciberseguridad desde el inicio</span>
-                    <p>Protección, blindaje estructural y mitigación de riesgos integrados desde la raíz del proyecto.</p>
-                </div>
-            </div>
-        </section>
-
-                <div style="text-align: center; margin-top: 50px;">
-                    <a href="contacto.html" class="btn-dorado">Poner en marcha mi estrategia</a>
-                </div>
-
-        <section class="cta-premium" aria-labelledby="titulo-cta">
-            <div class="contenedor">
-                <div class="cta-bloque-negro">
-                   <div class="cta-contenido">
-                    <p class="resaltado-caps" style="color: var(--color-primario) !important; margin-bottom: 10px;">Asesoría Tecnológica Personalizada</p>
-                    <h2>¿Quieres auditar y optimizar los sistemas digitales de tu empresa?</h2>
-                    <p>Evaluemos juntos tu ecosistema actual para trazar una hoja de ruta clara, segura y adaptada a tus necesidades operativas.</p>
-                </div>
-                    <div class="cta-botonera">
-                        <a href="contacto.html" class="btn-dorado">Agendar Consulta</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-   <footer class="sitio-footer">
-        <div class="contenedor footer-contenedor">
-            <p>&copy; 2026 Elena Gregorio Hurtado. Todos los derechos reservados.</p>
-            <div class="enlaces-legales">
-                <a href="aviso-legal.html">Aviso Legal</a>
-                <a href="privacidad.html">Política de Privacidad</a>
-                <a href="cookies.html">Política de Cookies</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-
-<div id="banner-cookies" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #111111; color: #ffffff; padding: 20px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.14); z-index: 9999; display: none; font-family: sans-serif;">
-    <div class="contenedor" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-        <p style="margin: 0; font-size: 14px; max-width: 65%; line-height: 1.5; color: #cccccc; text-align: left;">
-            Utilizamos cookies propias y de terceros para garantizar el funcionamiento de la web, personalizar tu experiencia y analizar el tráfico de forma anónima. Puedes configurarlas o leer los detalles en nuestra 
-            <a href="cookies.html" style="color: #dbbf7a; text-decoration: underline;">Política de Cookies</a>.
-        </p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button id="configurar-cookies" style="padding: 10px 16px; font-size: 13px; cursor: pointer; border: 1px solid #dbbf7a; background: transparent; color: #dbbf7a; border-radius: 4px; font-weight: 600;">Configurar</button>
-            <button id="rechazar-cookies" style="padding: 10px 16px; font-size: 13px; cursor: pointer; border: 1px solid #555; background: #222; color: #ffffff; border-radius: 4px; font-weight: 600;">Rechazar</button>
-            <button id="aceptar-cookies" class="btn-dorado" style="padding: 10px 20px; font-size: 13px; cursor: pointer; border: none; border-radius: 4px;">Aceptar todas</button>
+        <div class="hero-imagen-bloque">
+            <img src="{{ site.baseurl }}/img/elena en banco oficina.png" 
+                 alt="Elena Gregorio Hurtado - Consultora Digital" 
+                 class="foto-perfil-secundaria" 
+                 width="352" 
+                 height="235" 
+                 loading="lazy">
         </div>
     </div>
-</div>
+</section>
 
-<div id="modal-cookies" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 10000; display: none; align-items: center; justify-content: center; font-family: sans-serif; padding: 20px; box-sizing: border-box;">
-    <div style="background-color: #ffffff; color: #333333; padding: 30px; border-radius: 12px; max-width: 500px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); box-sizing: border-box; text-align: left;">
-        <h3 style="margin-top: 0; margin-bottom: 15px; color: #111111; font-size: 20px; font-weight: 700;">Centro de Preferencias de Privacidad</h3>
-        <p style="font-size: 14px; color: #666666; margin-bottom: 25px; line-height: 1.5;">Puedes activar o desactivar las diferentes categorías de cookies según tus preferencias:</p>
+<section class="seccion-soluciones-bloques">
+    <div class="contenedor">
         
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #ececec;">
-            <div>
-                <strong style="font-size: 15px; color: #111111; display: block; margin-bottom: 4px;">Cookies Técnicas (Necesarias)</strong>
-                <span style="font-size: 13px; color: #888888;">Imprescindibles para que la web funcione correctamente.</span>
-            </div>
-            <span style="color: #4CAF50; font-size: 13px; font-weight: 600; padding-right: 10px;">Siempre Activas</span>
+        <header class="seccion-header-centro">
+            <p class="resaltado-caps">Servicios de Consultoría Tecnológica</p>
+            <h2>¿Qué soluciones busca tu empresa para crecer en internet?</h2>
+        </header>
+        
+        <div class="grid-tres-columnas">
+            <article class="bloque-solucion-caja">
+                <h3>Consultora SEO y Estrategia Digital</h3>
+                <p>Diseño de hojas de ruta digitales basadas en datos objetivos. Auditoría de posicionamiento orgánico para visibilizar tu negocio ante tu cliente ideal.</p>
+                <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Solicitar servicio &rarr;</a>
+            </article>
+            
+            <article class="bloque-solucion-caja">
+                <h3>Optimización y Automatización de Procesos</h3>
+                <p>Reducción de costes operativos y eliminación de tareas redundantes mediante la automatización de flujos y conectividad digital avanzada.</p>
+                <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Optimizar mi servicio &rarr;</a>
+            </article>
+            
+            <article class="bloque-solucion-caja">
+                <h3>Integración de Inteligencia Artificial (IA)</h3>
+                <p>Preparación y despliegue estratégico de soluciones de Inteligencia Artificial y competencias digitales adaptadas a la realidad de tu equipo.</p>
+                <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Integrar IA ahora &rarr;</a>
+            </article>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #ececec; margin-bottom: 25px;">
-            <div>
-                <strong style="font-size: 15px; color: #111111; display: block; margin-bottom: 4px;">Cookies Analíticas</strong>
-                <span style="font-size: 13px; color: #888888;">Nos permiten medir de forma anónima cómo usas la web.</span>
-            </div>
-            <label style="position: relative; display: inline-block; width: 44px; height: 24px; cursor: pointer;">
-                <input type="checkbox" id="chk-analiticas" style="opacity: 0; width: 0; height: 0;">
-                <span id="slider-analiticas" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 24px;"></span>
-            </label>
+    </div>
+</section>
+
+<section class="por-que-contratarme" aria-labelledby="titulo-ventajas-claras">
+    <div class="contenedor">
+        
+        <header class="seccion-header-centro">
+            <p class="resaltado-caps">Tu negocio en buenas manos</p>
+            <h2 id="titulo-ventajas-claras">Hago que la tecnología trabaje para ti (y no al revés)</h2>
+            <p class="contratarme-lead-centrado">Olvídate de los sustos técnicos, las facturas sorpresa y los sistemas lentos. Así te ayudo a tomar el control:</p>
+        </header>
+        
+        <div class="mosaico-ventajas">
+            
+            <article class="tarjeta-visual-item">
+                <div class="tarjeta-visual-header">
+                    <div class="icono-circulo-dorado"><span>💻</span></div>
+                    <span class="tarjeta-numero-sutil">01</span>
+                </div>
+                <h3>Tu web es tuya, de nadie más</h3>
+                <p><strong>El problema:</strong> Muchas empresas descubren que si quieren cambiar algo de su web, tienen que seguir pagando cuotas eternas a plataformas de terceros o están "atrapadas".</p>
+                <p style="margin-top: 10px;"><strong>Mi solución:</strong> Yo construyo tu sistema desde cero para que tú tengas las llaves físicas de tu negocio digital. Sin alquileres ocultos ni dependencias. Tu plataforma es tuya para siempre.</p>
+                <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Quiero ser dueño de mi web &rarr;</a>
+            </article>
+
+            <article class="tarjeta-visual-item">
+                <div class="tarjeta-visual-header">
+                    <div class="icono-circulo-dorado"><span>📊</span></div>
+                    <span class="tarjeta-numero-sutil">02</span>
+                </div>
+                <h3>Hablamos tu mismo idioma</h3>
+                <p><strong>El problema:</strong> La tecnología trae consigo poder entenderla, y al final no sabes si lo que estás comprando ayuda a tu negocio a ganar dinero o no.</p>
+                <p style="margin-top: 10px;"><strong>Mi solución:</strong> Traduzco la tecnología compleja a planes de trabajo sencillos y rentables. Actúo como un puente: me encargo de lo difícil para que tú solo veas los resultados y las ventas.</p>
+                <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Quiero un plan claro &rarr;</a>
+            </article>
+
+            <article class="tarjeta-visual-item">
+                <div class="tarjeta-visual-header">
+                    <div class="icono-circulo-dorado"><span>🔒</span></div>
+                    <span class="tarjeta-numero-sutil">03</span>
+                </div>
+                <h3>Candados puestos antes de abrir</h3>
+                <p><strong>El problema:</strong> La mayoría de la gente se preocupa por la seguridad informática solo cuando ya le han robado los datos de sus clientes o cuando la web se ha caído.</p>
+                <p style="margin-top: 10px;"><strong>Mi solución:</strong> No pongo "tiritas" al final. Diseño tu sistema digital con los candados de seguridad integrados desde el primer minuto para evitar disgustos, virus y ataques antes de que ocurran.</p>
+                 <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Proteger mi negocio &rarr;</a>
+            </article>
+
         </div>
 
-        <div style="text-align: right;">
-            <button id="guardar-cookies" class="btn-dorado" style="padding: 12px 24px; font-size: 14px; cursor: pointer; border: none; border-radius: 4px; width: 100%;">Guardar mis preferencias</button>
+    </div>
+</section>
+
+<section class="home-sobre-mi" aria-labelledby="titulo-home-sobre">
+    <div class="contenedor home-sobre-grid">
+        <div class="home-sobre-imagen">
+           <img src="{{ site.baseurl }}/img/IMG_1228.jpeg" 
+                alt="Elena Gregorio Hurtado trabajando en su oficina de consultoría" 
+                class="hero-foto-perfil" 
+                width="352" 
+                height="265" 
+                loading="eager">
+        </div>
+        <div class="home-sobre-textos">
+            <p class="resaltado-caps">Elena Gregorio Hurtado</p>
+            <h2>Consultora Tecnológica Independiente y Formadora Digital</h2>
+            <p class="home-sobre-p">Acompaño a organizaciones y autónomos en su transición hacia modelos de negocio digitales eficientes, rentables y, por encima de todo, blindados.</p>
+             <a href="{{ site.baseurl }}/sobre-mi.html" class="btn-dorado">Conocer mi trayectoria &rarr;</a>
         </div>
     </div>
+</section>
+
+<section class="metricas-seccion">
+    <div class="contenedor grid-tres-columnas">
+        <div class="metrica-item" style="text-align: center;">
+            <span class="metrica-numero">100%</span>
+            <span class="metrica-etiqueta">Soberanía Digital</span>
+            <p>Sistemas implementados con control absoluto de infraestructura.</p>
+        </div>
+        <div class="metrica-item" style="text-align: center;">
+            <span class="metrica-numero">+15</span>
+            <span class="metrica-etiqueta">Años de Optimización</span>
+            <p>Estrategias corporativas transformadas con metodologías ágiles.</p>
+        </div>
+        <div class="metrica-item" style="text-align: center;">
+            <span class="metrica-numero">Nativa</span>
+            <span class="metrica-etiqueta">Ciberseguridad desde el inicio</span>
+            <p>Protección, blindaje estructural y mitigación de riesgos integrados desde la raíz del proyecto.</p>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center; margin-top: 50px;">
+    <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Poner en marcha mi estrategia</a>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const banner = document.getElementById("banner-cookies");
-    const modal = document.getElementById("modal-cookies");
-    const chkAnaliticas = document.getElementById("chk-analiticas");
-    const slider = document.getElementById("slider-analiticas");
-
-    // Estilos dinámicos para el switch On/Off (Manejo visual del botón deslizante)
-    chkAnaliticas.addEventListener('change', function() {
-        if(this.checked) {
-            slider.style.backgroundColor = '#dbbf7a'; // Tu dorado corporativo
-            slider.style.boxShadow = 'inset 20px 0 0 #dbbf7a';
-        } else {
-            slider.style.backgroundColor = '#ccc';
-            slider.style.boxShadow = 'none';
-        }
-    });
-
-    // 1. Verificar si el usuario ya tomó una decisión en el pasado
-    if (!localStorage.getItem("cookies_aceptadas")) {
-        banner.style.display = "block";
-    }
-
-    // 2. Acción: Aceptar Todas
-    document.getElementById("aceptar-cookies").addEventListener("click", function() {
-        localStorage.setItem("cookies_aceptadas", "todas");
-        localStorage.setItem("cookie_analitica", "true");
-        cerrarTodo();
-    });
-
-    // 3. Acción: Rechazar Todas
-    document.getElementById("rechazar-cookies").addEventListener("click", function() {
-        localStorage.setItem("cookies_aceptadas", "rechazadas");
-        localStorage.setItem("cookie_analitica", "false");
-        cerrarTodo();
-    });
-
-    // 4. Acción: Abrir pestaña/modal de configuración
-    document.getElementById("configurar-cookies").addEventListener("click", function() {
-        modal.style.display = "flex";
-    });
-
-    // 5. Acción: Guardar preferencias elegidas
-    document.getElementById("guardar-cookies").addEventListener("click", function() {
-        localStorage.setItem("cookies_aceptadas", "personalizadas");
-        localStorage.setItem("cookie_analitica", chkAnaliticas.checked ? "true" : "false");
-        cerrarTodo();
-    });
-
-    function cerrarTodo() {
-        banner.style.display = "none";
-        modal.style.display = "none";
-        // Aquí puedes recargar la página o activar los scripts de Google Analytics si aceptaron
-        if(localStorage.getItem("cookie_analitica") === "true") {
-            console.log("Cookies analíticas activadas.");
-            // Aquí iría tu script de Google Analytics
-        }
-    }
-});
-</script>
-    
-</body>
-</html>
+<section class="cta-premium" aria-labelledby="titulo-cta">
+    <div class="contenedor">
+        <div class="cta-bloque-negro">
+           <div class="cta-contenido">
+            <p class="resaltado-caps" style="color: var(--color-primario) !important; margin-bottom: 10px;">Asesoría Tecnológica Personalizada</p>
+            <h2>¿Quieres auditar y optimizar los sistemas digitales de tu empresa?</h2>
+            <p>Evaluemos juntos tu ecosistema actual para trazar una hoja de ruta clara, segura y adaptada a tus necesidades operativas.</p>
+        </div>
+            <div class="cta-botonera">
+                <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Agendar Consulta</a>
+            </div>
+        </div>
+    </div>
+</section>

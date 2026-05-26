@@ -1,13 +1,13 @@
- <footer class="sitio-footer">
-        <div class="contenedor footer-contenedor">
-            <p>&copy; 2026 Elena Gregorio Hurtado. Todos los derechos reservados.</p>
-            <div class="enlaces-legales">
-                <a href="aviso-legal.html">Aviso Legal</a>
-                <a href="privacidad.html">Política de Privacidad</a>
-                <a href="cookies.html">Política de Cookies</a>
-            </div>
+<footer class="sitio-footer">
+    <div class="contenedor footer-contenedor">
+        <p>&copy; 2026 Elena Gregorio Hurtado. Todos los derechos reservados.</p>
+        <div class="enlaces-legales">
+            <a href="{{ site.baseurl }}/aviso-legal.html">Aviso Legal</a>
+            <a href="{{ site.baseurl }}/privacidad.html">Política de Privacidad</a>
+            <a href="{{ site.baseurl }}/cookies.html">Política de Cookies</a>
         </div>
-    </footer>
+    </div>
+</footer>
 
 <div id="banner-cookies" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #111111; color: #ffffff; padding: 20px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.14); z-index: 9999; display: none; font-family: sans-serif;">
     <div class="contenedor" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; max-width: 1200px; margin: 0 auto; padding: 0 24px;">
@@ -53,12 +53,17 @@
     </div>
 </div>
 
+<button id="btn-flotante-cookies" title="Configurar preferencias de privacidad" style="position: fixed; bottom: 20px; left: 20px; width: 40px; height: 40px; background-color: #111111; border: 1px solid #dbbf7a; border-radius: 50%; cursor: pointer; z-index: 9998; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+    <span style="font-size: 18px; line-height: 1;">🍪</span>
+</button>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const banner = document.getElementById("banner-cookies");
     const modal = document.getElementById("modal-cookies");
     const chkAnaliticas = document.getElementById("chk-analiticas");
     const slider = document.getElementById("slider-analiticas");
+    const btnFlotante = document.getElementById("btn-flotante-cookies");
 
     function actualizarSlider(checkeado) {
         if(checkeado) {
@@ -74,29 +79,32 @@ document.addEventListener("DOMContentLoaded", function() {
         actualizarSlider(this.checked);
     });
 
-    // 1. Verificar si ya tomó una decisión en el pasado
-    if (!localStorage.getItem("cookies_aceptadas")) {
+    // COMPROBACIÓN INICIAL AL CARGAR LA PÁGINA
+    const decisionPasada = localStorage.getItem("cookies_aceptadas");
+    if (!decisionPasada) {
         banner.style.display = "block";
+        btnFlotante.style.display = "none"; // Oculto si no hay decisión
     } else {
-        // Si ya aceptó o denegó, ejecutamos la lógica correspondiente de inmediato en cada carga de página
-        revisarConsentimientoActivo();
+        banner.style.display = "none";
+        btnFlotante.style.display = "flex"; // ¡Aparece directo si ya decidió en el pasado!
+        ejecutarLogicaSegunConsentimiento();
     }
 
-    // 2. Acción: Aceptar Todas
+    // BOTÓN 1: Aceptar Todas
     document.getElementById("aceptar-cookies").addEventListener("click", function() {
         localStorage.setItem("cookies_aceptadas", "todas");
         localStorage.setItem("cookie_analitica", "true");
-        cerrarTodo();
+        finalizarProcesoBanner();
     });
 
-    // 3. Acción: Rechazar Todas
+    // BOTÓN 2: $Rechazar Todas$
     document.getElementById("rechazar-cookies").addEventListener("click", function() {
         localStorage.setItem("cookies_aceptadas", "rechazadas");
         localStorage.setItem("cookie_analitica", "false");
-        cerrarTodo();
+        finalizarProcesoBanner();
     });
 
-    // 4. Acción: Abrir modal de configuración
+    // BOTÓN 3: Configurar (Abre panel modal)
     document.getElementById("configurar-cookies").addEventListener("click", function() {
         modal.style.display = "flex";
         const estadoActual = localStorage.getItem("cookie_analitica") === "true";
@@ -104,52 +112,50 @@ document.addEventListener("DOMContentLoaded", function() {
         actualizarSlider(estadoActual);
     });
 
-    // 5. Acción: Guardar preferencias elegidas
+    // BOTÓN 4: Guardar Preferencias del Modal
     document.getElementById("guardar-cookies").addEventListener("click", function() {
         localStorage.setItem("cookies_aceptadas", "personalizadas");
         localStorage.setItem("cookie_analitica", chkAnaliticas.checked ? "true" : "false");
-        cerrarTodo();
+        modal.style.display = "none";
+        finalizarProcesoBanner();
     });
 
-    function cerrarTodo() {
-        banner.style.none = "none"; // Corrección de sintaxis nativa
+    // AL TERMINAR EL BANNER: Quitamos el bloque grande y H ACEMOS ACESSIBLE LA GALLETA FLOTANTE
+    function finalizarProcesoBanner() {
         banner.style.display = "none";
-        modal.style.display = "none";
-        revisarConsentimientoActivo();
+        btnFlotante.style.display = "flex"; // Se activa JUSTO en este momento
+        ejecutarLogicaSegunConsentimiento();
     }
 
-    function revisarConsentimientoActivo() {
+    // BOTÓN FLOTANTE: Permite al usuario volver a abrir el banner si cambia de opinión
+    btnFlotante.addEventListener("click", function() {
+        banner.style.display = "block";
+        btnFlotante.style.display = "none"; // Se oculta temporalmente mientras el banner esté abierto
+    });
+
+    function ejecutarLogicaSegunConsentimiento() {
         if (localStorage.getItem("cookie_analitica") === "true") {
-            console.log("Consentimiento ACTIVO: Inicializando scripts de seguimiento analítico...");
-            // Aquí puedes pegar tu script de Google Analytics si decides usarlo en el futuro
+            console.log("Cookies analíticas AUTORIZADAS.");
         } else {
-            console.log("Consentimiento DENEGADO: Procediendo a la purga de rastreadores externos.");
-            borrarCookiesAnaliticas();
+            console.log("Cookies analíticas DENEGADAS. Ejecutando purga estructural...");
+            purgarCookiesRastreo();
         }
     }
 
-    // FUNCIÓN DE CIBERSEGURIDAD Y PRIVACIDAD: Purga activa de cookies de terceros
-    function borrarCookiesAnaliticas() {
-        // Array con los nombres típicos que usan Google Analytics y otros rastreadores (_ga, _gid, etc.)
-        const cookiesRastreo = ['_ga', '_gid', '_gat', 'AMP_TOKEN', '_gac_'];
-        
-        // Leemos todas las cookies que existen actualmente en este navegador
-        const listaCookies = document.cookie.split(";");
+    function purgarCookiesRastreo() {
+        const objetivos = ['_ga', '_gid', '_gat', 'AMP_TOKEN', '_gac_'];
+        const cookiesExistentes = document.cookie.split(";");
 
-        for (let i = 0; i < listaCookies.length; i++) {
-            const cookie = listaCookies[i].trim();
-            const nombreCookie = cookie.split("=")[0];
+        for (let i = 0; i < cookiesExistentes.length; i++) {
+            const c = cookiesExistentes[i].trim();
+            const nombre = c.split("=")[0];
+            const coincidencia = objetivos.some(prefijo => nombre.startsWith(prefijo));
             
-            // Comprobamos si la cookie coincide con alguna de la lista de rastreo
-            const esAnalitica = cookiesRastreo.some(prefijo => nombreCookie.startsWith(prefijo));
-            
-            if (esAnalitica) {
-                // Truco criptográfico/temporal: Forzamos la caducidad pasándola a 1970 en todos los dominios posibles
-                document.cookie = nombreCookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-                document.cookie = nombreCookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname + ';';
-                // Para dominios personalizados con subdominios (ej: www.siranex.es)
-                const hostRaiz = window.location.hostname.replace(/^www\./, '');
-                document.cookie = nombreCookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + hostRaiz + ';';
+            if (coincidencia) {
+                document.cookie = nombre + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                document.cookie = nombre + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname + ';';
+                const dominioLimpio = window.location.hostname.replace(/^www\./, '');
+                document.cookie = nombre + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + dominioLimpio + ';';
             }
         }
     }

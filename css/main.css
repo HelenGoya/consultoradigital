@@ -869,3 +869,16 @@ body {
         font-size: 12px !important;
     }
 }
+/* ==========================================================================
+   ANULACIÓN ABSOLUTA DEL MENÚ HAMBURGUESA EN ESCRITORIO
+   ========================================================================== */
+@media screen and (min-width: 993px) {
+    .menu-toggle, 
+    #menuToggle, 
+    .menu-movil-toggle {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+}

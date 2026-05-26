@@ -259,15 +259,15 @@ body {
 
     /* 4. ADIÓS AL PUNTO: Activamos y redimensionamos tu botón real (.menu-toggle) */
     .menu-toggle {
-        display: flex !important;         /* Forzamos que aparezca */
-        flex-direction: column !important;
+        display: flex;         /* 0 block */
+        flex-direction: column;
         justify-content: space-between !important;
         width: 32px !important;           /* Ancho real y equilibrado */
         height: 22px !important;          /* Alto real para evitar el colapso */
-        background: transparent !important;
-        border: none !important;
-        cursor: pointer !important;
-        padding: 0 !important;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10 ;
         margin: 5px auto 0 auto !important; /* Lo clava en el centro justo debajo del nombre */
         z-index: 1100 !important;
     }
@@ -568,11 +568,14 @@ body {
 }
 
 /* --- RESPONSIVE ESPECÍFICO DE SECCIONES (Ajustes para Tablet/Móvil) --- */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .hero-grid, .home-sobre-grid, .sobre-hero-grid {
         grid-template-columns: 1fr; /* Pasa todo a una columna en tablets */
         padding: 40px 30px;
         gap: 30px;
+       .menu-toggle {
+          display:none;
+       }
     }
     .home-sobre-imagen, .sobre-hero-imagen {
         max-width: 100%;

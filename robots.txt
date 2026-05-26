@@ -1,0 +1,13 @@
+# Instrucciones para todos los motores de búsqueda (Google, Bing, etc.)
+User-agent: *
+
+# Permitimos que rastreen todo el contenido visible
+Allow: /
+
+# Ciberprotección básica: bloqueamos el acceso a carpetas de código estructural y recursos
+Disallow: /css/
+Disallow: /js/
+Disallow: /img/
+
+# Le indicamos a los bots dónde encontrar el mapa del sitio oficial
+Sitemap: https://helengoya.github.io/consultoradigital/sitemap.xml

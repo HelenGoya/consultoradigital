@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/img/egh%20logotipo%20dorado%20minimalista.svg">
+</head>
+<body>
+
+    {% include nav.html %}
+
+    <main>
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script src="{{ site.baseurl }}/js/main.js"></script>
+</body>
+</html>

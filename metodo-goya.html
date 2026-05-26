@@ -1,42 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Método GOYA | Elena Gregorio Hurtado</title>
-    
-    <link rel="icon" type="image/svg+xml" href="img/egh%20logotipo%20dorado%20minimalista.svg">
-    <link rel="apple-touch-icon" href="img/egh%20logotipo%20dorado%20minimalista.svg">
-    
-    <meta name="description" content="Descubre el Método GOYA: una metodología de transformación digital humana, estratégica y sostenible basada en la Resiliencia, Constancia y Paciencia.">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
+---
+layout: default
+title: El Método GOYA | Elena Gregorio Hurtado
+description: Descubre el Método GOYA una metodología de transformación digital humana, estratégica y sostenible basada en la Resiliencia, Constancia y Paciencia.
+---
 
-    <header class="sitio-header">
-        <div class="contenedor nav-contenedor">
-            <a href="index.html" class="logotipo" aria-label="Elena Gregorio Hurtado - Inicio">
-                <img src="img/egh%20logotipo%20dorado%20minimalista.svg" alt="" class="logo-icono-mini">
-                <span class="logo-texto"><span class="resaltado">E</span>lena <span class="resaltado">G</span>regorio <span class="resaltado">H</span>urtado</span>
-            </a>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
-                <span class="barra"></span>
-                <span class="barra"></span>
-                <span class="barra"></span>
-            </button>
-
-            <nav class="menu-navegacion" id="menuNavegacion">
-                <a href="index.html" class="enlace-nav">Inicio</a>
-                <a href="sobre-mi.html" class="enlace-nav">Sobre mí</a>
-                <a href="servicios.html" class="enlace-nav">Servicios</a>
-                <a href="metodo-goya.html" class="enlace-nav activo">Método Goya</a>
-                <a href="contacto.html" class="enlace-nav enlace-contacto">Contacto</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
 <section class="hero">
     <div class="contenedor hero-grid">
         
@@ -51,121 +18,93 @@
                 La evolución real de un negocio no depende únicamente de las herramientas que implementa. Nace de preparar la mentalidad organizativa para asimilar el cambio y construir estructuras digitales eficientes, humanas y sostenibles a largo plazo.
             </p>
             
-            <a href="contacto.html" class="btn-dorado">Quiero seguir el método Goya</a>
+            <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado">Quiero seguir el método Goya</a>
         </div>
         
         <div class="hero-imagen-bloque">
-            <img src="img/foto elena metodo goya.png" alt="Elena Gregorio Hurtado - Método GOYA" class="hero-foto-perfil">
+            <img src="{{ site.baseurl }}/img/foto elena metodo goya.png" alt="Elena Gregorio Hurtado - Método GOYA" class="hero-foto-perfil">
         </div>
         
     </div>
 </section>
       
-        <section style="padding: 80px 0; background-color: #ffffff;">
-            <div class="contenedor" style="max-width: 900px; line-height: 1.8; color: #333333;">
-                <h2 style="color: #111111; font-size: 28px; margin-bottom: 20px; border-bottom: 2px solid #dbbf7a; padding-bottom: 10px;">Más allá de la técnica: Una visión humana</h2>
-                <p style="margin-bottom: 20px;">
-                    Muchas empresas creen que digitalizarse se limita a diseñar una web o contratar campañas publicitarias. Sin embargo, la evolución real implica optimizar procesos, automatizar tareas repetitivas y, por encima de todo, acompañar al equipo en la creación de una cultura empresarial adaptable.
-                </p>
-                  <div style="background-color: #fdfbf7; border-left: 4px solid #dbbf7a; padding: 25px; margin: 35px 0; border-radius: 0 8px 8px 0; font-style: italic;">
-                    <p style="margin-bottom: 0; color: #444444; font-size: 17px;">
-                        "Detrás de las siglas de este método hay una historia profundamente personal. El nombre de esta metodología es un <strong>homenaje de agradecimiento a mi abuela Goya</strong>. Fue ella quien, con su sabiduría y ejemplo de vida, me enseñó el verdadero valor de los tres pilares que hoy sostienen mi filosofía de trabajo: la resiliencia para adaptarte, la constancia para no rendirte y la paciencia para ver florecer los resultados."
-                    </p>
-                </div>
-                <p style="margin-bottom: 20px;">
-                    El <strong>Método GOYA</strong> nace de la experiencia práctica con pymes, asociaciones y cooperativas de estructuras tradicionales o recursos limitados. Es una guía estratégica diseñada para demostrar que la tecnología puede ser accesible, humana y adaptada a la realidad de cada negocio.
-                </p>
-            </div>
-        </section>
-
-        <section style="padding: 80px 0; background-color: #f9f9f9;">
-            <div class="contenedor">
-                <p style="color: #dbbf7a; font-weight: bold; text-transform: uppercase; text-align:center; letter-spacing: 2px; margin-bottom: 15px;">La metamorfosis</p>
-                <h2 style="text-align: center; color: #111111; font-size: 32px; margin-bottom: 50px;">El Ciclo de la Evolución Digital</h2>
-                
-                <div style="display: flex; flex-direction: column; gap: 30px; max-width: 900px; margin: 0 auto;">
-                    
-                    <div style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #dbbf7a;">
-                        <h3 style="color: #111111; font-size: 20px; margin-bottom: 10px;">Fase 1: Diagnóstico y Observación (El Origen)</h3>
-                        <p>Analizamos el estado real de la organización. Detectamos cuellos de botella, tareas manuales repetitivas, fallos de comunicación interna y oportunidades de visibilidad online desaprovechadas para trazar una hoja de ruta clara.</p>
-                    </div>
-
-                    <div style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #dbbf7a;">
-                        <h3 style="color: #111111; font-size: 20px; margin-bottom: 10px;">Fase 2: Crecimiento Interno (La Estructura)</h3>
-                        <p>Comienza el trabajo operativo y estratégico: implementamos herramientas digitales, automatizamos la administración, optimizamos la arquitectura web y estructuramos las bases de datos. La empresa se nutre de procesos eficientes.</p>
-                    </div>
-
-                    <div style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #111111;">
-                        <h3 style="color: #111111; font-size: 20px; margin-bottom: 10px;">Fase 3: Gestión del Cambio (La Adaptación)</h3>
-                        <p>La etapa más compleja. Modificar hábitos y adoptar nuevas dinámicas de trabajo genera incomodidad. Aquí es donde el método aporta su mayor valor: un acompañamiento estratégico y formativo para asegurar que el equipo asimile el cambio sin abandonar.</p>
-                    </div>
-
-                    <div style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #dbbf7a;">
-                        <h3 style="color: #111111; font-size: 20px; margin-bottom: 10px;">Fase 4: Eficiencia Sostenible (La Consolidación)</h3>
-                        <p>La organización opera de forma ágil y coordinada. Los procesos automatizados ahorran tiempo, reducen errores manuales y la presencia online consolidada mediante SEO y analítica empieza a generar resultados medibles y estables.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-       <section style="padding: 80px 0; background-color: #ffffff;">
-            <div class="contenedor">
-                <h2 style="text-align: center; color: #111111; font-size: 32px; margin-bottom: 50px;">Los Tres Pilares de GOYA</h2>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
-                    
-                    <div style="text-align: center; padding: 20px;">
-                        <h3 style="color: #111111; font-size: 24px; margin-bottom: 15px;">Resiliencia</h3>
-                        <p style="color: #555; line-height: 1.6;">La capacidad de adaptación ágil ante un entorno tecnológico cambiante (IA, automatizaciones, algoritmos), transformando la incertidumbre en ventajas competitivas.</p>
-                    </div>
-
-                    <div style="text-align: center; padding: 20px;">
-                        <h3 style="color: #111111; font-size: 24px; margin-bottom: 15px;">Constancia</h3>
-                        <p style="color: #555; line-height: 1.6;">El motor del crecimiento. Los procesos digitales y el posicionamiento SEO no dan frutos mágicos en dos días; requieren continuidad, análisis y optimización estratégica periódica.</p>
-                    </div>
-
-                    <div style="text-align: center; padding: 20px;">
-                        <h3 style="color: #111111; font-size: 24px; margin-bottom: 15px;">Paciencia</h3>
-                        <p style="color: #555; line-height: 1.6;">El elemento que asienta la estructura. Permite consolidar cada aprendizaje, entender que cada optimización suma y construir una madurez digital sólida a largo plazo.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section style="padding: 60px 0; background-color: #111111; text-align: center; color: #ffffff;">
-            <div class="contenedor">
-                <h2 style="color: #ffffff; font-size: 28px; margin-bottom: 20px;">¿Preparado para hacer evolucionar tu organización?</h2>
-                <p style="color: #cccccc; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Hablemos de tus procesos internos, tus objetivos de visibilidad y diseñemos una estrategia digital a tu medida.</p>
-                <a href="contacto.html" class="btn-dorado" style="text-decoration: none; display: inline-block;">Iniciar Diagnóstico Gratuito</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="sitio-footer">
-        <div class="contenedor footer-contenedor">
-            <p>&copy; 2026 Elena Gregorio Hurtado. Todos los derechos reservados.</p>
-            <div class="enlaces-legales">
-                <a href="aviso-legal.html">Aviso Legal</a>
-                <a href="privacidad.html">Política de Privacidad</a>
-                <a href="cookies.html">Política de Cookies</a>
-            </div>
+<section style="padding: 80px 0; background-color: #ffffff;">
+    <div class="contenedor" style="max-width: 900px; line-height: 1.8; color: #333333;">
+        <h2 style="color: #111111; font-size: 28px; margin-bottom: 20px; border-bottom: 2px solid #dbbf7a; padding-bottom: 10px;">Más allá de la técnica: Una visión humana</h2>
+        <p style="margin-bottom: 20px;">
+            Muchas empresas creen que digitalizarse se limita a diseñar una web o contratar campañas publicitarias. Sin embargo, la evolución real implica optimizar procesos, automatizar tareas repetitivas y, por encima de todo, acompañar al equipo en la creación de una cultura empresarial adaptable.
+        </p>
+          <div style="background-color: #fdfbf7; border-left: 4px solid #dbbf7a; padding: 25px; margin: 35px 0; border-radius: 0 8px 8px 0; font-style: italic;">
+            <p style="margin-bottom: 0; color: #444444; font-size: 17px;">
+                "Detrás de las siglas de este método hay una historia profundamente personal. El nombre de esta metodología es un <strong>homenaje de agradecimiento a mi abuela Goya</strong>. Fue ella quien, con su sabiduría y ejemplo de vida, me enseñó el verdadero valor de los tres pilares que hoy sostienen mi filosofía de trabajo: la resiliencia para adaptarte, la constancia para no rendirte y la paciencia para ver florecer los resultados."
+            </p>
         </div>
-    </footer>
+        <p style="margin-bottom: 20px;">
+            El <strong>Método GOYA</strong> nace de la experiencia práctica con pymes, asociaciones y cooperativas de estructuras tradicionales o recursos limitados. Es una guía estratégica diseñada para demostrar que la tecnología puede ser accesible, humana y adaptada a la realidad de cada negocio.
+        </p>
+    </div>
+</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const boton = document.getElementById('menuToggle');
-            const menu = document.getElementById('menuNavegacion');
+<section style="padding: 80px 0; background-color: #f9f9f9;">
+    <div class="contenedor">
+        <p style="color: #dbbf7a; font-weight: bold; text-transform: uppercase; text-align:center; letter-spacing: 2px; margin-bottom: 15px;">La metamorfosis</p>
+        <h2 style="text-align: center; color: #111111; font-size: 32px; margin-bottom: 50px;">El Ciclo de la Evolución Digital</h2>
+        
+        <div style="display: flex; flex-direction: column; gap: 30px; max-width: 900px; margin: 0 auto;">
+            
+            <div style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #dbbf7a;">
+                <h3 style="color: #111111; font-size: 20px; margin-bottom: 10px;">Fase 1: Diagnóstico y Observación (El Origen)</h3>
+                <p>Analizamos el estado real de la organización. Detectamos cuellos de botella, tareas manuales repetitivas, fallos de comunicación interna y oportunidades de visibilidad online desaprovechadas para trazar una hoja de ruta clara.</p>
+            </div>
 
-            if (boton && menu) {
-                boton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    menu.classList.toggle('active');
-                    boton.classList.toggle('active');
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+            <div style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #dbbf7a;">
+                <h3 style="color: #111111; font-size: 20px; margin-bottom: 10px;">Fase 2: Crecimiento Interno (La Estructura)</h3>
+                <p>Comienza el trabajo operativo y estratégico: implementamos herramientas digitales, automatizamos la administración, optimizamos la arquitectura web y estructuramos las bases de datos. La empresa se nutre de procesos eficientes.</p>
+            </div>
+
+            <div style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #111111;">
+                <h3 style="color: #111111; font-size: 20px; margin-bottom: 10px;">Fase 3: Gestión del Cambio (La Adaptación)</h3>
+                <p>La etapa más compleja. Modificar hábitos y adoptar nuevas dinámicas de trabajo genera incomodidad. Aquí es donde el método aporta su mayor valor: un acompañamiento estratégico y formativo para asegurar que el equipo asimile el cambio sin abandonar.</p>
+            </div>
+
+            <div style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #dbbf7a;">
+                <h3 style="color: #111111; font-size: 20px; margin-bottom: 10px;">Fase 4: Eficiencia Sostenible (La Consolidación)</h3>
+                <p>La organización opera de forma ágil y coordinada. Los procesos automatizados ahorran tiempo, reducen errores manuales y la presencia online consolidada mediante SEO y analítica empieza a generar resultados medibles y estables.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section style="padding: 80px 0; background-color: #ffffff;">
+    <div class="contenedor">
+        <h2 style="text-align: center; color: #111111; font-size: 32px; margin-bottom: 50px;">Los Tres Pilares de GOYA</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
+            
+            <div style="text-align: center; padding: 20px;">
+                <h3 style="color: #111111; font-size: 24px; margin-bottom: 15px;">Resiliencia</h3>
+                <p style="color: #555; line-height: 1.6;">La capacidad de adaptación ágil ante un entorno tecnológico cambiante (IA, automatizaciones, algoritmos), transformando la incertidumbre en ventajas competitivas.</p>
+            </div>
+
+            <div style="text-align: center; padding: 20px;">
+                <h3 style="color: #111111; font-size: 24px; margin-bottom: 15px;">Constancia</h3>
+                <p style="color: #555; line-height: 1.6;">El motor del crecimiento. Los procesos digitales y el posicionamiento SEO no dan frutos mágicos en dos días; requieren continuidad, análisis y optimización estratégica periódica.</p>
+            </div>
+
+            <div style="text-align: center; padding: 20px;">
+                <h3 style="color: #111111; font-size: 24px; margin-bottom: 15px;">Paciencia</h3>
+                <p style="color: #555; line-height: 1.6;">El elemento que asienta la estructura. Permite consolidar cada aprendizaje, entender que cada optimización suma y construir una madurez digital sólida a largo plazo.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section style="padding: 60px 0; background-color: #111111; text-align: center; color: #ffffff;">
+    <div class="contenedor">
+        <h2 style="color: #ffffff; font-size: 28px; margin-bottom: 20px;">¿Preparado para hacer prevenir riesgos y hacer evolucionar tu organización?</h2>
+        <p style="color: #cccccc; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Hablemos de tus procesos internos, tus objetivos de visibilidad y diseñemos una estrategia digital a tu medida.</p>
+        <a href="{{ site.baseurl }}/contacto.html" class="btn-dorado" style="text-decoration: none; display: inline-block;">Iniciar Diagnóstico Seguro</a>
+    </div>
+</section>

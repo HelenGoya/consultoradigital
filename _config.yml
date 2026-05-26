@@ -1,0 +1,9 @@
+title: Elena Gregorio Hurtado | Consultoría Digital
+description: Gestión profesional y estrategia tecnológica y Digital.
+baseurl: "/consultoradigital" # Es crucial porque tu web cuelga de esta subcarpeta
+url: "https://helengoya.github.io"
+
+# Configuraciones de compilación
+markdown: kramdown
+theme: minima # Un tema base invisible para que GitHub sepa que arranca Jekyll
+exclude: [Gemfile, Gemfile.lock, node_modules]

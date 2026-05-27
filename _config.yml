@@ -7,3 +7,6 @@ url: "https://helengoya.github.io"
 markdown: kramdown
 theme: minima # Un tema base invisible para que GitHub sepa que arranca Jekyll
 exclude: [Gemfile, Gemfile.lock, node_modules]
+# Configuración del procesador de estilos Sass
+sass:
+  style: compressed
